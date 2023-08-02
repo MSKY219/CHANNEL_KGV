@@ -1,0 +1,797 @@
+/* =============================================================== */
+/* 아래부터 추가하세요. */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  width: 1040px;
+  height: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+main>section:first-child {
+  display: flex;
+  width: 100%;
+  height: 800px;
+  margin: 50px auto;
+}
+
+main>section:first-child * {
+  font-size: 1em;
+}
+
+
+/* 극장, 영화, 상영 트로이카 */
+
+main>section:first-child>div {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 100%;
+  border: 1px solid lightgray;
+}
+
+main>section:first-child>div:last-child {
+  width: 40%;
+}
+
+
+/* 각 트로이카 제목 */
+
+main>section:first-child>div>div:first-child {
+  height: calc(200px / 3);
+  line-height: calc(200px / 3);
+  text-align: center;
+  padding: 0 18px;
+  border-bottom: 1px solid lightgray;
+}
+
+main>section:first-child>div>div:first-child>p {
+  height: calc(200px / 3);
+  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* 극장 선택 영역 */
+
+main>section:first-child>div:first-child>div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: calc(200px / 3);
+  line-height: calc(200px / 3);
+  font-size: 20px;
+  border-bottom: 1px solid white;
+}
+
+/* 극장 선택 tab */
+
+main>section:first-child>div:first-child>div:nth-child(2)>div {
+  width: 50%;
+  height: 100%;
+}
+
+main>section:first-child>div:first-child>div:nth-child(2)>div:first-child {
+  border-right: 1px solid white;
+}
+
+main>section:first-child>div:first-child>div:nth-child(2)>div>a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+  color: #fcfcfc;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+main>section:first-child>div:first-child>div:nth-child(2)>div>a.clicked {
+  background-color: #D92B36;
+  opacity: 1;
+}
+
+main>section:first-child>div:first-child>div:nth-child(2)>div>a:not(.clicked):hover {
+  color: #E9b630;
+  opacity: 1;
+}
+
+
+main>section:first-child>div:first-child>div:nth-child(3) {
+  display: flex;
+  height: 100%;
+}
+
+main>section:first-child>div:first-child>div:nth-child(3)>div {
+  width: 50%;
+  height: calc(2000px/3 - 1px);
+  position: relative;
+  overflow-y: scroll;
+}
+
+main>section:first-child>div:first-child>div:nth-child(3)>div:first-child {
+  border-right: 1px solid white;
+}
+
+main>section:first-child>div:first-child>div:nth-child(3)>div>ul>li {
+  border-bottom: 1px solid white;
+  height: calc(200px / 3);
+}
+
+main>section:first-child>div:first-child>div:nth-child(3)>div>ul>li>a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: #FCFCFC;
+  padding: 18px;
+}
+
+main>section:first-child>div:first-child>div:nth-child(3)>div>ul>li>a:not(.clicked):hover {
+  color: #E9b630;
+}
+
+
+main>section:first-child>div:first-child>div:nth-child(3)>div>ul>li>a.clicked {
+  color: #E9b630;
+  font-weight: 700;
+}
+
+
+
+/* 극장 */
+
+main>section:first-child>div:first-child>div:nth-child(3)>div:last-child>ul {
+  margin-bottom: calc(100px/3);
+  display: none;
+}
+
+main>section:first-child>div:first-child>div:nth-child(3)>div:last-child>ul:first-child {
+  display: block;
+}
+
+
+
+/* 영화 선택 */
+
+main>section:first-child>div:nth-child(2)>div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: calc(200px / 3);
+  line-height: calc(200px / 3);
+  border-bottom: 1px solid white;
+}
+
+/* 영화 선택 tab */
+
+main>section:first-child>div:nth-child(2)>div:nth-child(2)>div {
+  width: 50%;
+  height: 100%;
+}
+
+main>section:first-child>div:nth-child(2)>div:nth-child(2)>div:first-child {
+  border-right: 1px solid white;
+}
+
+main>section:first-child>div:nth-child(2)>div:nth-child(2)>div>a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+  color: #fcfcfc;
+  cursor: pointer;
+}
+
+main>section:first-child>div:nth-child(2)>div:nth-child(2)>div>a.clicked {
+  background-color: #D92B36;
+}
+
+main>section:first-child>div:nth-child(2)>div:nth-child(2)>div>a:not(.clicked):hover {
+  color: #E9b630;
+}
+
+
+
+/* 영화 리스트 영역 */
+
+main>section:first-child>div:nth-child(2)>div:nth-child(3) {
+  width: 100%;
+  height: calc(100% - 200px / 3);
+  overflow-y: scroll;
+  padding-bottom: calc(100px / 3);
+}
+
+main>section:first-child>div:nth-child(2)>div:nth-child(3)>ul {
+  display: none;
+}
+
+main>section:first-child>div:nth-child(2)>div:nth-child(3)>#movielist_thumb {
+  display: block;
+}
+
+
+/* 영화 리스트 (1)*/
+
+main>section:first-child>div:nth-child(2)>div:nth-child(3)>#movielist_text>li {
+  border-bottom: 1px solid white;
+  height: calc(200px / 3);
+}
+
+main>section:first-child>div:nth-child(2)>div:nth-child(3)>#movielist_text>li>a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  line-height: 18px;
+  background-color: transparent;
+  padding: 18px;
+  padding-right: 12px;
+  opacity: 0.4;
+}
+
+main>section:first-child>div:nth-child(2)>div:nth-child(3)>#movielist_text>li>a.bright {
+  opacity: 1;
+}
+
+
+/* 영화 리스트 (1) - 연령 */
+
+#movielist_text>li>a>div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  margin-right: 11px;
+}
+
+.age00 {
+  background-color: #229c56;
+}
+
+.age12 {
+  background-color: #E9b630;
+}
+
+.age15 {
+  background-color: #DD7430;
+}
+
+.age18 {
+  background-color: #D92B36;
+}
+
+/* 영화 리스트 (1) - 제목 */
+
+#movielist_text>li>a>div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  width: 85%;
+  height: 30px;
+  line-height: 33px;
+  font-size: 18px;
+}
+
+#movielist_text>li>a>div:nth-child(2)>span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
+/* 영화 리스트 (2) - 썸네일 + 글 */
+main>section:first-child>div:nth-child(2)>div:nth-child(3)>#movielist_thumb>li {
+  border-bottom: 1px solid white;
+  height: calc(200px * 2 / 3);
+}
+
+#movielist_thumb>li>a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  line-height: 18px;
+  background-color: transparent;
+  padding: 18px;
+  padding-right: 12px;
+  opacity: 0.4;
+}
+
+#movielist_thumb>li>a.bright {
+  opacity: 1;
+}
+
+/* 영화 리스트 (2) - 썸네일 */
+#movielist_thumb>li>a>div:first-child {
+  width: 60px;
+  height: 91.4px;
+  border: 1px solid white;
+  margin-right: 16px;
+  position: relative;
+
+}
+
+#movielist_thumb>li>a>div:first-child>img {
+  width: 100%;
+  height: 100%;
+  postion: absolute;
+  top: 0;
+  left: 0;
+}
+
+#movielist_thumb>li>a>div:first-child>span {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+
+}
+
+
+/* 영화 리스트 (2) - 내용 */
+#movielist_thumb>li>a>div:last-child {
+  width: 70%;
+  height: 91.4px;
+}
+
+/* 영화 리스트 (2) - 내용 : 연령 + 제목 */
+
+#movielist_thumb>li>a>div:last-child>div:first-child {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+}
+
+
+/* 영화 리스트 (2) - 내용 : 연령 */
+
+#movielist_thumb>li>a>div:last-child>div:first-child>div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
+/* 영화 리스트 (2) - 내용 : 제목 */
+
+#movielist_thumb>li>a>div:last-child>div:first-child>div:last-child {
+  width: 82.5%;
+  height: 22px;
+  line-height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#movielist_thumb>li>a>div:last-child>div:first-child>div:last-child * {
+  font-size: 16px;
+}
+
+/* 영화 리스트 (2) - 내용 : 예매율 + 평점 + 개봉일 */
+
+#movielist_thumb>li>a>div:last-child>div:nth-child(2) * {
+  font-size: 13px;
+}
+
+/* 영화 리스트 (2) - 내용 : 예매율 + 평점 */
+
+#movielist_thumb>li>a>div:last-child>div:nth-child(2)>div:first-child {
+  display: flex;
+  margin-bottom: 7px;
+}
+
+#movielist_thumb>li>a>div:last-child>div:nth-child(2)>div:first-child>div>strong>span {
+  font-size: 15px;
+}
+
+#movielist_thumb>li>a>div:last-child>div:nth-child(2)>div:first-child>div:first-child::after {
+  content: "";
+  position: relative;
+  margin: 0 10px;
+  border-right: 1px solid white;
+}
+
+/* 영화 리스트 (2) - 내용 : 평점 */
+
+#movielist_thumb>li>a>div:last-child>div:nth-child(2)>div:first-child>div:last-child>i {
+  color: #ffd400;
+  margin-right: 6.5px;
+}
+
+
+
+/* 날짜 선택 */
+
+main>section:first-child>div:last-child>div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: calc(200px * 2 / 3);
+  padding: 0 3%;
+  border-bottom: 1px solid white;
+}
+
+main>section:first-child>div:last-child>div:nth-child(2)>.swiper {
+  width: 80%;
+  height: 100px;
+}
+
+main>section:first-child>div:last-child>div:nth-child(2)>.swiper .swiper-slide {
+  position: relative;
+  height: 100px;
+}
+
+main>section:first-child>div:last-child>div:nth-child(2)>.swiper .swiper-slide>.month {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100px / 3);
+  height: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+
+main>section:first-child>div:last-child>div:nth-child(2)>.swiper .swiper-slide>.date {
+  position: absolute;
+  top: 27.5px;
+  left: 0;
+  width: calc(100px / 3);
+  height: 45px;
+  text-align: center;
+  line-height: 36px;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+  background-color: rgb(32, 32, 32);
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+main>section:first-child>div:last-child>div:nth-child(2)>.swiper .swiper-slide>.date.clicked {
+  border-color: #E9b630;
+  color: #E9b630;
+}
+
+main>section:first-child>div:last-child>div:nth-child(2)>.swiper .swiper-slide>.day {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: calc(100px / 3);
+  height: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+
+main>section:first-child>div:last-child>div:nth-child(2)>.swiper .swiper-slide>.month.clicked, .day.clicked {
+  color: #E9b630;
+}
+
+main>section:first-child>div:last-child>div:nth-child(2)>.swiper-button-next::after {
+  color: #f05650;
+}
+
+main>section:first-child>div:last-child>div:nth-child(2)>.swiper-button-prev::after {
+  color: #f05650;
+}
+
+
+.holiday {
+  color: #f05650 !important;
+}
+
+
+/* 상영 선택 */
+
+main>section:first-child>div:last-child>div:nth-child(3) {
+  position: relative;
+  overflow-y: scroll;
+  padding: 0 3%;
+  height: calc(100% - 200px);
+}
+
+main>section:first-child>div:last-child>div:nth-child(3)>ul {
+  padding: calc(100px / 3) 0;
+}
+
+main>section:first-child>div:last-child>div:nth-child(3)>ul>li {
+  margin-bottom: calc(100px / 3);
+  padding: 0 5px;
+  border: 1px solid white;
+}
+
+main>section:first-child>div:last-child>div:nth-child(3)>ul>li>div:first-child {
+  height: calc(200px / 3);
+  line-height: calc(200px / 3);
+  padding: 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.playlist {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.playlist>li {
+  display: flex;
+  width: 30%;
+  height: 100px;
+  margin: 0 calc(5% / 3);
+}
+
+
+.playlist>li>a {
+  display: flex;
+  border: 1px solid white;
+  border-radius: 3px;
+  width: 100%;
+  height: 80px;
+}
+
+.playlist>li>a>div:first-child {
+  width: 100%;
+  height: 100%;
+  padding: 12px 10px;
+}
+
+/* 상영 시작 시간 */
+
+.playlist>li>a>div:first-child>div:first-child {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.playlist>li>a>div:first-child>div:first-child * {
+  font-size: 15px;
+}
+
+/* 상영 좌석 수 + 관 번호 */
+
+.playlist>li>a>div:first-child>div:last-child {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.playlist>li>a>div:first-child>div:last-child * {
+  font-size: 13px;
+  line-height: 13px;
+}
+
+/* 상영 선택 - 잔여석 */
+
+.playlist>li>a>div:first-child>div:last-child>div:first-child>span:first-child {
+  color: #FF243E;
+}
+
+
+/* 상영 선택 - 종료 시간 */
+.playlist>li>a>div:nth-child(2) {
+  display: none;
+}
+
+
+
+/* 결과창 */
+
+main>section:nth-child(2) {
+  display: flex;
+  width: 100%;
+  height: calc(400px /3);
+  border: 1px solid white;
+}
+
+
+/* 예매 결과 */
+
+main>section:nth-child(2) {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: calc(400px/3);
+  color: white;
+  padding-left: 3%;
+}
+
+main>section:nth-child(2)>div {
+  height: 100px;
+  margin-right: calc(4% - 0.5px);
+}
+
+/* 썸네일 + 영화 정보 */
+
+main>section:nth-child(2)>div:first-child {
+  border-right: 1px solid white;
+  display: flex;
+  width: 32.5%;
+}
+
+
+/* 썸네일 */
+
+main>section:nth-child(2)>div:first-child>#movie_thumb {
+  width: 65px;
+  height: 98px;
+  border: 1px solid white;
+  margin-right: 6%;
+}
+
+main>section:nth-child(2)>div:first-child>#movie_thumb>img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 영화 정보 */
+
+main>section:nth-child(2)>div:first-child>#movie_detail {
+  width: 74%;
+  height: 100px;
+  font-size: 14px;
+}
+
+/* 연령 + 제목 */
+
+#movie_detail>div:first-child {
+  display: flex;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  margin: 6px 0 20px;
+}
+
+
+/* 연령 */
+
+#movie_detail>div:first-child>div:first-child {
+  width: 25px;
+  height: 25px;
+  line-height: 19.5px;
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+#movie_detail>div:first-child>div:first-child>* {
+  font-size: 16px;
+}
+
+
+/* 제목 */
+
+#movie_detail>div:first-child>div:last-child {
+  padding-right: 7.5%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+
+
+/* 상영 일시 */
+
+#movie_detail>div:nth-child(2) {
+  margin-bottom: 5px;
+}
+
+#movie_detail>div:nth-child(2)>span {
+  font-size: 13px;
+}
+
+#movie_detail>div:nth-child(3) {
+  font-size: 13px;
+}
+
+#movie_detail>div:nth-child(3) * {
+  font-size: 13px;
+}
+
+
+/* 상영관 + 좌석 */
+
+main>section:nth-child(2)>div:nth-child(2) {
+  width: 22.25%;
+  border-right: 1px solid white;
+  padding-top: 8px;
+}
+
+main>section:nth-child(2)>div:nth-child(2)>#seat_code {
+  margin-top: 21px;
+}
+
+#seat_code>div {
+  font-size: 13px;
+}
+
+#seat_code>div:first-child {
+  margin-bottom: 5px;
+}
+
+
+/* 가격 */
+
+main>section:nth-child(2)>#price_calc {
+  width: 20%;
+  font-size: 13px;
+}
+
+#price_calc>div {
+  display: none;
+  width: 100%;
+  height: 20px;
+  line-height: 22px;
+  position: relative;
+}
+
+#price_calc>div>div {
+  position: absolute;
+  right: 17.5%;
+}
+
+
+/* 결제 */
+
+main>section:nth-child(2)>div:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 15%;
+  height: 100%;
+  background-color: crimson;
+
+  margin-right: 0;
+  border-left: 1px solid white;
+}
+
+main>section:nth-child(2)>div:last-child>a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  color: white;
+  font-size: 21px;
+  width: 100%;
+  height: 100%;
+}
+
+.navBar:nth-child(3)>a:nth-child(1) {
+  color: rgb(255, 196, 0);
+}

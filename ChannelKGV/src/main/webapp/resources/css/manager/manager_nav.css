@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "GmarketSansMedium";
+    /* color: rgb(222, 222, 222); */
+    list-style-type: none;
+}
+
+.main_Wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+}
+
+/* Nav 영역 */
+#left_Nav_Container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333333;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+
+
+#left_Nav_Container::-webkit-scrollbar {
+    display: none;
+}
+
+.nav_Title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 85px;
+    color: white;
+}
+
+#mainLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainLogo>img {
+    height: 60px;
+}
+
+/* Nav 안 슬라이더 */
+.nav_Slide li:nth-child(n) {
+    display: flex;
+    width: 300px;
+    min-height: 40px;
+    color: white;
+    margin-top: 20px;
+}
+
+
+
+.title_move {
+    text-decoration: none;
+    color: black;
+    height: 40px;
+}
+
+.slide_Title {
+    display: flex;
+    align-items: center;
+}
+
+.selected_Title {
+    background-color: #FAE300;
+    color: black !important;
+}
+
+.title_move li:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.slide_Content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    cursor: pointer;
+    /* border-bottom: 1px solid white; */
+    margin-bottom: 10px;
+}
+
+.slide_Wrapper:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.slide_Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide_Wrapper.active {
+    background-color: #FAE300;
+    color: black;
+}
+
+.align_Inner_Items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide_Left_Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+}
+
+.slide_Inner_Title {
+    display: flex;
+    width: 200px;
+}
+
+.slide_Right_Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+}
+
+.slide_Down_items {
+    display: none;
+    font-size: 0.8rem;
+}
+
+.slide_Down_items li {
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.slide_Down_items li:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.slide_Down_items a {
+    text-decoration: none;
+}
+
+.inner_align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner_Left_Icon {
+    padding-top: 4px;
+    margin-right: 20px;
+}

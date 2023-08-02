@@ -1,0 +1,206 @@
+/* 요기서부터 위에껀 전부 날리면됩니다. */
+
+main {
+    width: 1040px;
+    height: 100%;
+    padding: 50px 30px;
+    margin: 0 auto;
+}
+
+main>div:nth-child(1) {
+    border-bottom: 2px solid #FFC400;
+    padding-bottom: 30px;
+    height: 100%;
+}
+
+main>div:nth-child(1)>span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+
+
+/* 카드 랩퍼 */
+main>div:nth-child(2) {
+    width: 100%;
+    display: flex;
+}
+
+/* 카드 스타일 */
+main>div:nth-child(2)>ol {
+    margin-top: 30px;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+main>div:nth-child(2)>ol>li {
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+/* 카드 이미지 div */
+main>div:nth-child(2)>ol>li>div:nth-child(1) {
+    width: 100%;
+    height: 80%;
+}
+
+/* 카드 내 벨류의 순위 */
+main>div:nth-child(2)>ol>li>div:nth-child(1)>span {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    line-height: 28px;
+    font-size: 2rem;
+    z-index: 1;
+    color: #FFC400;
+    font-style: italic;
+
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(1)>a {
+    display: flex;
+}
+
+/* 카드 이미지 절대크기 */
+main>div:nth-child(2)>ol>li>div:nth-child(1)>a>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+main>div:nth-child(2)>ol>li>div:nth-child(2) {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(2)>a {
+    font-size: 1.2rem;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(2)>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 0.7rem;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(2)>div>p:nth-child(1) {
+    width: 35%;
+    margin-right: 10px;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3) {
+    display: flex;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3)>button {
+    width: 35%;
+
+    height: 40px;
+    background-color: transparent;
+    outline: none;
+    padding: 0 5px;
+    border-radius: 10px;
+    background-color: rgb(21, 21, 21);
+    border: none;
+
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3)>button:nth-child(2) {
+    margin-left: 10px;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3)>button:nth-child(2):hover {
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
+
+
+main>div:nth-child(2)>ol>li>div:nth-child(3)>a {
+    width: 60%;
+    color: black;
+    background-color: white;
+    line-height: 38px;
+    text-align: center;
+    margin-left: 15px;
+    border-radius: 10px;
+    background-color: #494949;
+    color: #fcfcfc;
+    cursor: pointer;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3)>a:hover {
+    background-color: rgb(255, 196, 0);
+    color: black;
+}
+
+
+.navBar:nth-child(1)>a:nth-child(1) {
+    color: rgb(255, 196, 0);
+}
+
+/* 관람 등급 */
+.age-img-area {
+    position: absolute;
+    z-index: 5;
+    top: 0px;
+    left: 170px;
+    width: 35px;
+    opacity: 0.9;
+}
+
+/* 예매율, 개봉일 폰트 사이즈 */
+.textSize {
+    font-size: 0.8rem;
+
+}
+
+.titleFont {
+    display: flex;
+    align-items: center;
+}
+
+/* 영화 제목 */
+
+.titleFont span {
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.revlikeVal {
+    color: rgb(255, 196, 0);
+
+}
+
+.navBar:nth-child(1)>a:nth-child(1) {
+    color: rgb(255, 196, 0);
+}
+
+
+.noList {
+    padding-top: 30px;
+    padding-left: 10px;
+    font-size: 1.5rem;
+}
+
+.hkeywordss {
+    color: #FCC400;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mtmMapper">
+
+	<resultMap type="mtm" id="mtm_rm">
+		<id property="mtmNo" column="MTM_NO" />
+		<result property="mtmTitle" column="MTM_TITLE" />
+		<result property="mtmContent" column="MTM_CONTENT" />
+		<result property="mtmSt" column="MTM_ST" />
+		<result property="mtmType" column="MTM_TYPE" />
+		<result property="userNo" column="USER_NO" />
+		<result property="mtmImage" column="MTM_IMAGE" />
+		<result property="mtmRegdate" column="MTM_REGDATE" />
+		<result property="mtmCount" column="MTM_COUNT" />
+		<result property="mtmWriter" column="MTM_WRITER" />
+		<result property="mtmRepWriter" column="MTM_REPWRITER" />
+		<result property="mtmRepSt" column="MTM_REPST" />
+		<result property="mtmRepContent" column="MTM_REPCONTENT" />
+		<result property="mtmRepDate" column="MTM_REPDATE" />
+		<result property="mtmPw" column="MTM_PW" />
+	</resultMap>
+
+	<!-- 표시할 mtmCount 조회 -->
+	<select id="getUserMtmCount" resultType="_int">
+		SELECT COUNT(MTM_NO)
+		FROM MTM_TBL
+		WHERE
+		<choose>
+			<when
+				test="userNo != null and userNo != 0 and userManagerSt != null and userManagerSt == 1">
+				MTM_TBL.MTM_ST = 'N' ORDER BY MTM_TBL.MTM_NO DESC
+			</when>
+			<when test="userNo != 0  and userManagerSt == 0">
+				MTM_TBL.USER_NO = #{userNo} AND MTM_TBL.MTM_ST = 'N'
+			</when>
+			<otherwise>
+				MTM_TBL.USER_NO = 0 AND MTM_TBL.MTM_ST = 'N'
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- 작성후 이동할 mtmNo 조회 -->
+	<select id="selectMtmNo" resultType="_int">
+		SELECT MAX(MTM_NO) AS
+		maxMtmNo FROM MTM_TBL WHERE USER_NO = ${userNo}
+	</select>
+
+	<!-- mtmList 조회 -->
+	<select id="userMtmList" resultMap="mtm_rm">
+		SELECT
+		MTM_NO,
+		MTM_TITLE,
+		TO_CHAR(MTM_REGDATE, 'YYYY.MM.DD') AS
+		MTM_REGDATE,
+		MTM_COUNT,
+		MTM_TYPE
+		FROM
+		MTM_TBL
+		INNER JOIN
+		USERS ON
+		MTM_TBL.USER_NO = USERS.USER_NO
+		WHERE
+		<choose>
+			<when
+				test="userNo != null and userNo != 0 and userManagerSt != null and userManagerSt == 1">
+				MTM_TBL.MTM_ST = 'N' ORDER BY MTM_TBL.MTM_NO DESC
+			</when>
+			<when test="userNo != 0  and userManagerSt == 0">
+				MTM_TBL.USER_NO = #{userNo} AND MTM_TBL.MTM_ST = 'N'
+				ORDER BY MTM_TBL.MTM_NO DESC
+			</when>
+			<otherwise>
+				MTM_TBL.USER_NO = 0 AND MTM_TBL.MTM_ST = 'N' ORDER BY
+				MTM_TBL.MTM_NO DESC
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- 고객센터 전용 count -->
+	<select id="getUserMtmCount-all" resultType="_int">
+		SELECT COUNT(MTM_NO)
+		FROM MTM_TBL WHERE MTM_ST = 'N'
+	</select>
+	<!-- 고객센터 전용 select -->
+	<select id="userMtmList-all" resultMap="mtm_rm">
+		SELECT
+		MTM_NO,
+		MTM_TITLE,
+		TO_CHAR(MTM_REGDATE, 'YYYY.MM.DD') AS
+		MTM_REGDATE,
+		MTM_COUNT,
+		MTM_TYPE,
+		MTM_PW,
+		MTM_REPST,
+		MTM_TBL.USER_NO
+		FROM
+		MTM_TBL
+		INNER JOIN
+		USERS ON
+		MTM_TBL.USER_NO =
+		USERS.USER_NO
+		WHERE MTM_ST = 'N'
+		ORDER BY MTM_TBL.MTM_NO DESC
+	</select>
+
+	<select id="mtmDetail" resultMap="mtm_rm">
+		SELECT
+		MTM_NO
+		, MTM_TITLE
+		, MTM_CONTENT
+		, MTM_IMAGE
+		, MTM_ST
+		, MTM_TYPE
+		, USER_NO
+		, TO_CHAR(MTM_REGDATE,
+		'YYYY.MM.DD') AS MTM_REGDATE
+		, MTM_WRITER
+		, MTM_REPST
+		, MTM_REPWRITER
+		,
+		MTM_REPCONTENT
+		,TO_CHAR(MTM_REPDATE, 'YYYY.MM.DD HH24:MI') AS
+		MTM_REPDATE
+		, MTM_PW
+		FROM MTM_TBL
+		WHERE MTM_NO = #{mtmNo}
+		AND MTM_ST = 'N'
+	</select>
+	
+	<update id="updatemTm" parameterType="mtm">
+	UPDATE MTM_TBL SET
+	MTM_TITLE = #{mtmTitle},
+	MTM_CONTENT = #{mtmContent},
+	MTM_TYPE=#{mtmType},
+	MTM_IMAGE=#{mtmImage},
+	MTM_PW=#{mtmPw}
+	WHERE MTM_NO=#{mtmNo}
+	</update>
+
+	<insert id="addmTm" parameterType="mtm">
+		INSERT INTO MTM_TBL
+		VALUES (
+		SEQ_MTM_NO.NEXTVAL
+		, #{mtmTitle}
+		,
+		#{mtmContent}
+		, #{mtmImage}
+		, #{userNo}
+		,
+		#{mtmType}
+		, DEFAULT
+		, DEFAULT
+		, DEFAULT
+		,
+		#{mtmWriter}
+		, DEFAULT
+		, DEFAULT
+		, DEFAULT
+		, DEFAULT
+		, #{mtmPw}<!-- 게시물 비밀번호 -->
+		)
+
+	</insert>
+
+	<update id="deleteBoard">
+		UPDATE MTM_TBL SET
+		MTM_ST = 'Y'
+		WHERE MTM_NO = ${mtmNo}
+	</update>
+	
+	
+	
+
+	<update id="replyDelete">
+		UPDATE MTM_TBL SET
+		MTM_REPST = 'N'
+		WHERE MTM_NO =
+		${mtmNo}
+	</update>
+
+	<update id="replyWrite">
+		UPDATE MTM_TBL
+		SET
+		MTM_REPCONTENT = #{content},
+		MTM_REPWRITER = #{managerNick},
+		MTM_REPST = 'Y',
+		MTM_REPDATE = DEFAULT
+		WHERE MTM_NO = #{mtmNo}
+	</update>
+
+	<select id="selectmtmPw" resultType="_int">
+		SELECT MTM_PW
+		FROM MTM_TBL
+		WHERE MTM_NO = #{mtmNo}
+	</select>
+
+	<select id="selectUserNo" resultType="_int">
+		SELECT USER_NO
+		FROM MTM_TBL
+		WHERE MTM_NO = #{mtmNo}
+	</select>
+
+	<!-- 1:1문의 조회수 증가 -->
+	<update id="updateReadCount">
+		UPDATE MTM_TBL
+		SET
+		MTM_COUNT = MTM_COUNT+1
+		WHERE MTM_NO = #{mtmNo}
+	</update>
+
+
+</mapper>

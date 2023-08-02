@@ -1,0 +1,164 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "GmarketSansMedium";
+    /* color: rgb(222, 222, 222); */
+    list-style-type: none;
+}
+
+.main_Wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+}
+
+/* Nav 영역 */
+#left_Nav_Container {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333333;
+}
+
+.nav_Title {
+    width: 100%;
+    height: 85px;
+    border: 1px solid red;
+
+    color: white;
+}
+
+/* Nav 안 슬라이더 */
+.nav_Slide li:nth-child(n) {
+    display: flex;
+    width: 300px;
+    min-height: 50px;
+    color: white;
+    margin-top: 20px;
+}
+
+
+
+.title_move {
+    text-decoration: none;
+    color: black;
+    height: 50px;
+}
+
+.slide_Title {
+    display: flex;
+    align-items: center;
+}
+
+.title_move li:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.slide_Content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    cursor: pointer;
+    /* border-bottom: 1px solid white; */
+    margin-bottom: 10px;
+}
+
+.slide_Wrapper:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.slide_Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide_Wrapper.active {
+    background-color: #FAE300;
+    color: black;
+}
+
+.align_Inner_Items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide_Left_Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+}
+
+.slide_Inner_Title {
+    display: flex;
+    width: 200px;
+}
+
+.slide_Right_Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+}
+
+.slide_Down_items {
+    display: none;
+    font-size: 0.8rem;
+}
+
+.slide_Down_items li {
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.slide_Down_items li:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.slide_Down_items a {
+    text-decoration: none;
+}
+
+.inner_align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner_Left_Icon {
+    padding-top: 4px;
+    margin-right: 20px;
+}
+
+
+
+/* 우측 영역 */
+.right_items_Container {
+    display: flex;
+    flex-direction: column;
+    flex: 8.5;
+    height: 100%;
+}
+
+/* 내부 아이템 영역 */
+#items_Wrapper {
+    display: flex;
+    flex: 1;
+}

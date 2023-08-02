@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="userMapper">
+
+<!-- 	
+		<resultMap type="member" id="member_rm">
+			<id property="memberNo" column="MEMBER_NO" />
+			
+			<result property="memberEmail" column="MEMBER_EMAIL" />
+		</resultMap>
+ -->
+	
+	<resultMap type="user" id="user_rm">
+	
+		<id property="userNo" column="USER_NO"/>
+		
+		<result property="userEmail" 		column="USER_EMAIL"/>
+		<result property="userPw" 			column="USER_PW"/>
+		<result property="userName" 		column="USER_NAME"/>
+		<result property="userNick" 		column="USER_NICKNAME"/>
+		<result property="userTel" 			column="USER_TEL"/>
+		<result property="userAddr" 		column="USER_ADDR"/>
+		<result property="userBirth" 		column="USER_BIRTH"/>
+		<result property="userGender" 		column="USER_GENDER"/>
+		<result property="userRegDate" 		column="USER_REGDATE"/>
+		<result property="userSt" 			column="USER_ST"/>
+		<result property="userImg"	 		column="USER_IMG"/>
+		<result property="userPoint" 		column="USER_POINT"/>
+		<result property="userSns" 			column="USER_SNS"/>
+		<result property="userChange" 		column="USER_CHANGE"/>
+		<result property="userDelete" 		column="USER_DELETE"/>
+		<result property="userManagerSt" 	column="USER_MANAGERST"/>
+		<result property="userBlock" 		column="USER_BLOCK"/>
+	</resultMap>
+	
+	<resultMap type="email" id="email_rm">
+		
+		<result property="email" 			column="EMAIL"/>
+		<result property="cNumber" 			column="C_NUMBER"/>
+		<result property="issueDate" 		column="ISSUE_DT"/>
+	</resultMap>
+	
+	
+	
+	<!-- 로그인 기능 실행 -->
+	<select id="login"  parameterType="user"  resultMap="user_rm"  >
+ 		SELECT *
+ 		FROM USERS
+		WHERE USER_EMAIL = #{userEmail}
+		<!-- AND USER_PW = #{userPw} -->
+		AND USER_ST = 'Y' 
+  	</select>
+  	
+	<!-- 비밀번호 찾기, 가입한 회원인지 check  -->	
+	<select id="checkUser" parameterType="user" resultType="boolean">
+  		SELECT *
+  		FROM USERS
+  		WHERE USER_NAME = #{userName}
+  		AND USER_BIRTH = #{userBirth}
+  		AND USER_EMAIL = #{userEmail} 
+  	</select>
+	
+	<!-- 인증메일 보내기  -->
+	<insert id="updateCertification" parameterType="email">
+		UPDATE CERTIFICATION SET
+		C_NUMBER = #{cnum},
+		ISSUE_DT = SYSDATE
+		WHERE EMAIL = #{userEmail}
+	</insert>
+	
+	<!-- 인증완료  -->
+	<select id="checkNumber" parameterType="email" resultType="_int">
+		SELECT 
+		   CASE WHEN (SELECT '1' FROM CERTIFICATION
+		            WHERE EMAIL = #{userEmail}
+		            AND C_NUMBER = #{cNumber})  = 1
+		   
+		      THEN NVL( (SELECT '1' FROM CERTIFICATION
+		            WHERE EMAIL = #{userEmail}
+		            AND ISSUE_DT + (INTERVAL '5' MINUTE) >= SYSDATE) , '2') 
+		
+		      ELSE '3'	
+		   END			
+		FROM DUAL
+	</select>
+	
+	<update id="changePw">
+		UPDATE USERS SET
+		USER_PW = '${encPw}'
+		WHERE USER_EMAIL = '${userEmail}'
+	</update>
+	
+	
+	<select id="findEmail" parameterType="user" resultType="java.lang.String">
+    	SELECT USER_EMAIL
+    	FROM USERS
+    	WHERE USER_NAME = #{userName}
+    	AND USER_BIRTH = #{userBirth}
+    	AND USER_TEL = #{userTel} 
+</select>
+	
+
+	
+  	
+</mapper>

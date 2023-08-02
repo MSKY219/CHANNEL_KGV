@@ -1,0 +1,48 @@
+
+.aside {
+    width: 18%;
+}
+
+.container {
+    width: 80%;
+    margin-bottom: 70px;
+}
+
+
+.aside-ul-wrap {
+    width: 100%;
+    position: sticky;
+    top: 50px;
+}
+
+.aslide-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.aslide-list>li {
+    width: 100%;
+    height: 50px;
+    line-height: 48px;
+    display: flex;
+    margin-bottom: 10px;
+
+}
+
+.aslide-list>li>a {
+    width: 100%;
+    height: 100%;
+    padding:0  10px;
+}
+
+
+.aslide-list>li>a {
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.aslide-list>li>a:hover {
+    color: black;
+    background-color: #FFC400;
+}

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cinemaMapper">
+
+	<resultMap type="cinema" id="cinema_rm">
+		<id property="cinemaNo" column="CINEMA_NO" />
+		<result property="cinemaName" column="CINEMA_NAME" />
+		<result property="cinemaArea" column="CINEMA_AREA" />
+		<result property="cinemaRegion" column="CINEMA_REGION" />
+		<result property="cinemaScreen" column="CINEMA_SCREEN" />
+	</resultMap>
+
+	<resultMap type="screen" id="screen_rm">
+		<id property="screenNo" column="SCREEN_NO" />
+		<result property="cinemaName" column="CINEMA_NAME" />
+		<result property="screenName" column="SCREEN_NAME" />
+		<result property="screenStyle" column="SCREEN_STYLE" />
+		<result property="screenSeat" column="SCREEN_SEAT" />
+		<result property="screenRow" column="SCREEN_ROW" />
+		<result property="screenCol" column="SCREEN_COL" />
+		<result property="screenAisle" column="SCREEN_AISLE" />
+		<result property="screenSpace" column="SCREEN_SPACE" />
+		<result property="screenSweet" column="SCREEN_SWEET" />
+		<result property="screenImpaired" column="SCREEN_IMPAIRED" />
+	</resultMap>
+	
+
+	<resultMap type="cinemaPrice" id="cinemaprice_rm">
+		<id property="priceNo" column="PRICE_NO" />
+		<result property="screenStyle" column="SCREEN_STYLE" />
+		<result property="priceDay" column="PRICE_DAY" />
+		<result property="priceTime" column="PRICE_TIME" />
+		<result property="priceTeen" column="PRICE_TEEN" />
+		<result property="priceNormal" column="PRICE_NORMAL" />
+		<result property="priceElder" column="PRICE_ELDER" />
+		<result property="priceSpecial" column="PRICE_SPECIAL" />
+		<result property="priceCouple" column="PRICE_COUPLE" />
+	</resultMap>
+
+
+	<!-- 영화관 등록 -->
+
+	<insert id="enrollCinema" parameterType="cinema">
+		INSERT INTO CINEMA
+		VALUES(SEQ_CINEMA_NO.NEXTVAL, #{cinemaName}, #{cinemaArea},
+		#{cinemaRegion}, #{cinemaScreen})
+	</insert>
+
+
+	<!-- 상영관 등록 -->
+
+	<insert id="enrollScreen" parameterType="screen">
+		INSERT INTO SCREEN
+		VALUES(SEQ_SCREEN_NO.NEXTVAL, #{cinemaName}, #{screenName},
+		#{screenStyle}, #{screenSeat},
+		#{screenRow}, #{screenCol}, #{screenAisle}, #{screenSpace}, #{screenSweet},
+		#{screenImpaired})
+	</insert>
+
+
+	<!-- 영화관 중복 검사 -->
+
+	<select id="cinemaDupCheck" parameterType="string"
+		resultType="_int">
+		SELECT COUNT(*) FROM CINEMA
+		WHERE CINEMA_NAME =
+		#{cinemaName}
+	</select>
+
+
+	<!-- 영화관 갯수 조회 -->
+
+	<select id="getCinemaCount" resultType="_int">
+		SELECT COUNT(*) FROM
+		CINEMA
+	</select>
+
+
+	<!-- 영화관 리스트 조회 -->
+
+	<select id="getCinemaList" resultMap="cinema_rm">
+		SELECT * FROM CINEMA
+		ORDER
+		BY CINEMA_NO ASC
+	</select>
+
+
+	<!-- 지역별 영화관 리스트 조회 -->
+
+	<select id="getAreaCinemaList" parameterType="string"
+		resultMap="cinema_rm">
+		SELECT * FROM CINEMA
+		WHERE CINEMA_AREA = #{areaName}
+		ORDER BY
+		CINEMA_NAME ASC
+	</select>
+
+
+	<!-- 상영관 번호 조회 -->
+
+	<select id="getScreenNo" parameterType="screen"
+		resultType="_int">
+		SELECT SCREEN_NO FROM SCREEN
+		WHERE CINEMA_NAME =
+		#{cinemaName} AND SCREEN_NAME = #{screenName}
+	</select>
+
+	<!-- 스크린 리스트 조회 -->
+
+	<select id="getScreenList" parameterType="string"
+		resultMap="screen_rm">
+		SELECT * FROM SCREEN
+		WHERE CINEMA_NAME = #{cinemaName}
+	</select>
+
+
+	<!-- 극장 가격 갯수 조회 -->
+
+	<select id="getCinemaPriceCount" resultType="_int">
+		SELECT COUNT(*) FROM
+		PRICE
+	</select>
+
+	<!-- 극장 가격 리스트 조회 -->
+
+	<select id="getCinemaPriceList" resultMap="cinemaprice_rm">
+		SELECT * FROM PRICE
+		ORDER BY PRICE_NO ASC
+	</select>
+
+	<!-- 극장 가격 리스트 수정 조회 -->
+
+	<select id="getEditPriceList" resultType="HashMap">
+		SELECT * FROM PRICE
+		WHERE PRICE_NO = #{priceNo}
+	</select>
+
+	<update id="EditCinemaPrice" parameterType="cinemaPrice">
+		UPDATE PRICE SET
+		SCREEN_STYLE = #{screenStyle}
+		, PRICE_DAY = #{priceDay}
+		, PRICE_TIME =
+		#{priceTime}
+		, PRICE_TEEN = #{priceTeen}
+		, PRICE_NORMAL = #{priceNormal}
+		, PRICE_ELDER = #{priceElder}
+		, PRICE_SPECIAL = #{priceSpecial}
+		,
+		PRICE_COUPLE = #{priceCouple}
+		WHERE PRICE_NO = #{priceNo}
+	</update>
+
+	<select id="getPriceNo" parameterType="Map" resultType="_int">
+		SELECT PRICE_NO FROM PRICE
+		WHERE SCREEN_STYLE = #{screenStyle} AND PRICE_DAY = #{priceDay} AND
+		PRICE_TIME = #{priceTime}
+	</select>
+
+	<select id="getPriceModel" parameterType="_int"
+		resultMap="cinemaprice_rm">
+		SELECT * FROM PRICE
+		WHERE PRICE_NO = #{priceNo}
+	</select>
+
+	<select id="getSpecialScreenList" parameterType="string"
+		resultMap="screen_rm">
+		SELECT * FROM SCREEN
+		WHERE SCREEN_STYLE = #{type}
+		ORDER BY CINEMA_NAME
+	</select>
+	
+	<select id="distinctcinemaList" resultMap="cinema_rm">
+		SELECT 
+		MIN(CINEMA_NO) AS
+		CINEMA_NO,
+		CINEMA_AREA
+		 FROM CINEMA
+		 GROUP BY
+		 CINEMA_AREA
+		ORDER
+		BY CINEMA_NO ASC
+	</select>
+	
+	<select id="selectcinemaNameList" resultMap="cinema_rm">
+		SELECT
+		CINEMA_NAME
+		FROM CINEMA
+		WHERE CINEMA_AREA=#{cinemaArea}
+	</select>
+
+
+
+
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+
+	<typeAliases>
+
+		<typeAlias type="com.kh.kgv.customer.model.vo.User" alias="user"/>
+		<typeAlias type="com.kh.kgv.customer.model.vo.Like" alias="like"/>
+		<typeAlias type="com.kh.kgv.customer.model.vo.Book" alias="book"/>
+		<typeAlias type="com.kh.kgv.customer.model.vo.Sns" alias="sns"/>
+		<typeAlias type="com.kh.kgv.customer.model.vo.Email" alias="email"/>
+
+		<typeAlias type="com.kh.kgv.items.model.vo.Movie" alias="movie"/>
+		<typeAlias type="com.kh.kgv.items.model.vo.Genre" alias="genre"/>
+		<typeAlias type="com.kh.kgv.items.model.vo.Play" alias="play"/>
+		<typeAlias type="com.kh.kgv.items.model.vo.Seat" alias="seat"/>
+		<typeAlias type="com.kh.kgv.items.model.vo.SeatPrice" alias="sp"/>
+		<typeAlias type="com.kh.kgv.items.model.vo.Store" alias="store"/>
+		<typeAlias type="com.kh.kgv.items.model.vo.TimeTable" alias="tt"/>
+		<typeAlias type="com.kh.kgv.items.model.vo.TimeCheck" alias="tc"/>
+		<typeAlias type="com.kh.kgv.items.model.vo.PayOrder" alias="PO"/>
+		
+		<typeAlias type="com.kh.kgv.management.model.vo.Event" alias="event"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.Ask" alias="ask"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.Freq" alias="freq"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.Notice" alias="notice"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.Discount" alias="discount"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.DiscountAdd" alias="da"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.Manager" alias="manager"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.DailyEnter" alias="de"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.DailyWatch" alias="dw"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.WeeklyEnter" alias="we"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.banner" alias="banner"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.CinemaPrice" alias="CinemaPrice"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.Search" alias="search"/>
+		
+
+		<typeAlias type="com.kh.kgv.management.model.vo.Benefits" alias="benefits"/>
+
+		<typeAlias type="com.kh.kgv.management.model.vo.JoinPlay" alias="jp"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.JoinCS" alias="jcs"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.JoinBook" alias="jb"/>
+		
+		<typeAlias type="com.kh.kgv.mypage.model.vo.JoinReview" alias="jr"/>
+		<typeAlias type="com.kh.kgv.mypage.model.vo.JoinMovie" alias="jm"/>
+		
+		
+		<typeAlias type="com.kh.kgv.management.model.vo.Cinema" alias="cinema"/>
+		<typeAlias type="com.kh.kgv.management.model.vo.Screen" alias="screen"/>
+		
+		<typeAlias type="com.kh.kgv.helpDesk.model.vo.Mtm" alias="mtm"/>
+		<typeAlias type="com.kh.kgv.helpDesk.model.vo.LostPackage" alias="losts"/>
+		<typeAlias type="com.kh.kgv.helpDesk.model.vo.Quest" alias="quest"/>
+		<typeAlias type="com.kh.kgv.customer.model.vo.Review" alias="review"/>
+		
+		<typeAlias type="com.kh.kgv.store.model.vo.StoreOrder" 	alias="storeOrder"/>
+		<typeAlias type="com.kh.kgv.store.model.vo.StoreCoupon" alias="storeCoupon"/>
+		<typeAlias type="com.kh.kgv.store.model.vo.JoinStore" 	alias="js"/>
+		
+		
+
+		
+	</typeAliases>
+
+	
+	<mappers>
+		<!-- 
+			 <mapper resource="mapper 파일 경로" />
+				경로를 작성하는 기준(시작지점)은 src/main/resources 폴더
+		 -->
+		<mapper resource="/mappers/movie-mapper.xml"/>
+		<mapper resource="/mappers/user-mapper.xml"/>
+		<mapper resource="/mappers/signup-mapper.xml"/>
+		<mapper resource="/mappers/EnterCheck-Mapper.xml"/>
+		<mapper resource="/mappers/manager-mapper.xml"/>
+		<mapper resource="/mappers/myPage-mapper.xml"/>
+		<mapper resource="/mappers/store-mapper.xml"/>
+		<mapper resource="/mappers/play-mapper.xml"/>
+		<mapper resource="/mappers/cinema-mapper.xml"/>
+		<mapper resource="/mappers/mtm-mapper.xml"/>
+		<mapper resource="/mappers/lost-mapper.xml"/>
+		<mapper resource="/mappers/quest-mapper.xml"/>
+		<mapper resource="/mappers/review-mapper.xml"/>
+	
+
+		
+	</mappers>
+
+</configuration>

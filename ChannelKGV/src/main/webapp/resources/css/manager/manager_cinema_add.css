@@ -1,0 +1,472 @@
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 1em;
+  font-family: "GmarketSansMedium";
+  /* color: rgb(222, 222, 222); */
+  list-style-type: none;
+}
+
+.main_Wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #eee;
+}
+
+/* 우측 영역 */
+.right_items_Container {
+  display: flex;
+  flex-direction: column;
+  flex: 8.5;
+  height: 100%;
+}
+
+/* 내부 아이템 영역 */
+#items_Wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.set_Edge {
+  flex: 1;
+  display: flex;
+  margin: 20px 18px;
+  background-color: white;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.table_Wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 30px 30px;
+}
+
+.table_Title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 5vh;
+  border-bottom: 2px solid black;
+  justify-content: space-between;
+}
+
+.table_Title span {
+  margin-left: 30px;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.search_Box {
+  display: flex;
+  width: 350px;
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+.search_Box input {
+  flex: 9;
+}
+
+.search_Box button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+}
+
+.table_main {
+  position: relative;
+}
+
+.table_main tr {
+  width: 100%;
+  height: 6.5vh;
+  text-align: center;
+}
+
+.table_main th,
+.table_main td {
+  vertical-align: middle;
+}
+
+.table_main th {
+  font-weight: bold;
+}
+
+.table_main td {
+  font-size: 0.8rem;
+}
+
+.table_main tr:nth-child(2n) {
+  background-color: #dbdbdb;
+}
+
+.table_main td button {
+  width: 25px;
+  height: 25px;
+}
+
+.table_main td button i {
+  padding-top: 4px;
+  padding-right: 2px;
+}
+
+
+/* 극장 이름 */
+.table_main>div:first-child {
+  display: flex;
+  width: 800px;
+  height: 60px;
+  margin: 10px 0 40px;
+  padding-top: 10px;
+  padding-left: 30px;
+}
+
+.table_main>div:first-child>span {
+  margin-top: 10px;
+  margin-right: 30px;
+}
+
+.table_main>div:first-child>div {
+  width: 380px;
+}
+
+.table_main>div:first-child>div>input {
+  display: block;
+  width: 100%;
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+.table_main>div:first-child>div>p {
+  font-size: 14px;
+  /* display: none;*/
+}
+
+
+
+/* 극장 주소 */
+.table_main>div:nth-child(2) {
+  display: flex;
+  width: 1000px;
+  height: 140px;
+  margin: 40px 0 30px;
+  padding-left: 30px;
+}
+
+.table_main>div:nth-child(2)>span {
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.table_main>div:nth-child(2)>div>div {
+  margin-bottom: 14px;
+  height: 35px;
+}
+
+.table_main>div:nth-child(2)>div>div>input {
+  width: 380px;
+  height: 35px;
+  margin-right: 12px;
+  padding-left: 5px;
+}
+
+.table_main>div:nth-child(2)>div>div:first-child>input:first-child {
+  width: 257px;
+}
+
+.table_main>div:nth-child(2)>div>div:first-child>button {
+  width: 105px;
+  height: 35px;
+}
+
+
+
+/* 상영관 */
+
+.table_main>div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  padding-left: 14px;
+}
+
+.table_main>div:nth-child(3)>span {
+  margin-right: 30px;
+}
+
+.table_main>div:nth-child(3)>.screen_area {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 1000px;
+}
+
+.screen,
+#plusScreen {
+  width: 180px;
+  height: 100px;
+  margin-right: 17.5px;
+  margin-bottom: 17.5px;
+  border: 1px solid black;
+}
+
+#plusScreen>a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  padding-top: 12px;
+}
+
+#plusScreen>a:hover {
+  color: #FAE300;
+}
+
+.screen>div:first-child {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 14px;
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid black;
+  padding-left: 10px;
+}
+
+.screen>div:first-child>div:first-child {
+  position: relative;
+  top: 2px;
+}
+
+.screen>div:first-child>div:last-child {
+  display: flex;
+  position: absolute;
+  right: 6px;
+}
+
+.screen>div:first-child>div:last-child>button {
+  margin-left: 6px;
+  padding-top: 5px;
+}
+
+/* 상영관 편집*/
+
+.table_main>#room_area {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  z-index: 0;
+  width: 1055px;
+  height: calc(100% + 120px);
+  min-height: 500px;
+  background-color: #ccc;
+}
+
+#room_area>div:first-child {
+  width: 100%;
+  height: 37px;
+  text-align: center;
+  line-height: 40px;
+  border-bottom: 1px solid black;
+}
+
+#room_area>div:nth-child(2) {
+  display: flex;
+}
+
+#room_area>div:nth-child(2)>#seat_area {
+  width: 80%;
+  border-right: lpx solid black;
+  padding-top: 30px;
+  padding-left: 50px;
+}
+
+
+/* 상영관 편집 > 좌석 */
+
+#seat_area>div {
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  margin-bottom: 7px;
+}
+
+#seat_area>div:last-child {
+  margin-bottom: 0;
+}
+
+
+#seat_area>div>div {
+
+  position: absolute;
+  left: -30.98px;
+  width: 25px;
+  height: 25px;
+  font-size: 10px;
+  line-height: 27.5px;
+  text-align: center;
+}
+
+#seat_area>div>a {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 27.5px;
+  color: black;
+  font-size: 10px;
+  margin-right: 5.98px;
+  border: 1px solid white;
+}
+
+#seat_area>div>a.aisle {
+  background-color: #ddd;
+  border-color: #ddd;
+}
+
+#seat_area>div>a.space {
+  background-color: #aaa;
+  border-color: #aaa;
+}
+
+#seat_area>div>a.sweet {
+  background-color: magenta;
+  border-color: magenta;
+}
+
+#seat_area>div>a.impared {
+  background-color: green;
+  border-color: green;
+}
+
+#seat_area>div>a.option {
+  background-color: pink;
+  border-color: pink;
+}
+
+#seat_area>div>a:hover {
+  background-color: orange;
+  border-color: orange;
+}
+
+#seat_area>div>a.clicked {
+  background-color: red;
+  border-color: red;
+}
+
+#seat_area>div>a * {
+  font-size: 12px;
+}
+
+#room_area>div:nth-child(2)>div:nth-child(2) {
+  padding-top: 30px;
+}
+
+/* 상영관의 가로, 세로 */
+
+#room_area>div:nth-child(2)>div:nth-child(2)>div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  height: 30px;
+}
+
+#room_area>div:nth-child(2)>div:nth-child(2)>div>input {
+  margin-left: 5.5px;
+  width: 50px;
+}
+
+#room_area>div:nth-child(2)>div:nth-child(2)>div>select {
+  margin-left: 5.5px;
+  width: 120px;
+  height: 30px;
+}
+
+
+/* 좌석 옵션 */
+
+#room_area>div:nth-child(2)>div:nth-child(2)>#seat_option {
+  margin-top: 50px;
+  display: none;
+}
+
+#room_area>div:nth-child(2)>div:nth-child(2)>#seat_option_confirm {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  background-color: white;
+}
+
+#seat_option_confirm>a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: black;
+}
+
+#seat_option_confirm>a:hover {
+  color: orange;
+}
+
+
+/* 저장 및 취소 버튼 */
+.table_bottom {
+    flex: 1;
+    display: flex;
+    align-items: end;
+    margin: 40px 0 13px 90px;
+}
+
+.table_bottom button {
+    color: white;
+}
+
+.table_bottom button:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.bottom_Submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #333333;
+}
+
+.bottom_Cancel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    margin-left: 30px;
+    cursor: pointer;
+    background-color: #333333;
+}

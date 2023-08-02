@@ -1,0 +1,73 @@
+.main_Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 상단 영역 */
+#info_Section {
+    margin-bottom: 30px;
+}
+
+/* 실제로 제목, 등록일, 이벤트 기간을 감싸는 영역 */
+#items {
+    display: flex;
+    flex-direction: row;
+    width: 980px;
+    margin: 50px 0 20px 0;
+    border-bottom: 3px solid white;
+    padding-bottom: 40px;
+}
+
+/* 제목 영역 */
+#titleArea {
+    flex: 8;
+}
+
+/* 제목 폰트 사이즈 및 효과 */
+#titleArea>span {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* 등록일 및 이벤트 기간을 감싸는 영역 */
+#dateArea {
+    flex: 2;
+}
+
+/* 등록일 및 이벤트 기간 th 설정 */
+#dateArea th {
+    text-align: right;
+    padding-right: 10px;
+}
+
+/* 컨텐츠 영역 */
+#content_Section {
+    padding-bottom: 80px;
+}
+
+/* 뒤로가기 버튼 */
+#returnBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 80px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#returnBtn:hover {
+    background-color: rgb(251, 251, 251);
+    color: rgb(21, 21, 21);
+}
+
+.navBar:nth-child(5)>a:nth-child(1) {
+    color: rgb(255, 196, 0);
+}

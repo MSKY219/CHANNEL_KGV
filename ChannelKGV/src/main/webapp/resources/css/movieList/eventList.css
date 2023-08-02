@@ -1,0 +1,165 @@
+/* 요기서부터 위에껀 전부 날리면됩니다. */
+
+main {
+    width: 1040px;
+    height: 100%;
+    padding: 50px 30px;
+    margin: 0 auto;
+}
+
+main>div:nth-child(1) {
+    border-bottom: 2px solid #FFC400;
+    padding-bottom: 30px;
+    height: 100%;
+}
+
+main>div:nth-child(1)>span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+
+
+/* 카드 랩퍼 */
+main>div:nth-child(2) {
+    width: 100%;
+    display: flex;
+}
+
+/* 카드 스타일 */
+main>div:nth-child(2)>ol {
+    margin-top: 30px;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+main>div:nth-child(2)>ol>li {
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+/* 카드 이미지 div */
+main>div:nth-child(2)>ol>li>div:nth-child(1) {
+    width: 100%;
+    height: 80%;
+}
+
+/* 카드 내 벨류의 순위 */
+main>div:nth-child(2)>ol>li>div:nth-child(1)>span {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin: 20px;
+    line-height: 28px;
+    font-size: 2rem;
+    z-index: 1;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(1)>a {
+    display: flex;
+}
+
+/* 카드 이미지 절대크기 */
+main>div:nth-child(2)>ol>li>div:nth-child(1)>a>img {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+main>div:nth-child(2)>ol>li>div:nth-child(2) {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(2)>a {
+    font-size: 1.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(2)>div {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 0.9rem;
+    justify-content: center;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(2)>div>p:nth-child(1) {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.evedate {
+    width: 225px;
+    text-align: center;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3) {
+    display: flex;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3)>button {
+    height: 40px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid lightgray;
+    padding: 0 5px;
+    border-radius: 10px;
+
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3)>button:nth-child(2) {
+    margin-left: 10px;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3)>button:nth-child(2):hover {
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3)>button:nth-child(1) {
+    width: 30%;
+}
+
+main>div:nth-child(2)>ol>li>div:nth-child(3)>button:nth-child(2) {
+    width: 70%;
+    color: black;
+    background-color: white;
+}
+
+
+.navBar:nth-child(4)>a:nth-child(1) {
+    color: rgb(255, 196, 0);
+}
+
+.age-img-area {
+    position: absolute;
+    bottom: 15px;
+    left: 170px;
+    width: 25px;
+    opacity: 0.9;
+}
+
+.eventTitle {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

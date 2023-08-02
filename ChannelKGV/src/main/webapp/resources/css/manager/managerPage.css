@@ -1,0 +1,305 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "GmarketSansMedium";
+    /* color: rgb(222, 222, 222); */
+    list-style-type: none;
+}
+
+.main_Wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+}
+
+/* 우측 영역 */
+.right_items_Container {
+    display: flex;
+    flex-direction: column;
+    flex: 8.5;
+    height: 100%;
+}
+
+/* 내부 아이템 영역 */
+#items_Wrapper {
+    display: flex;
+    flex: 1;
+}
+
+.left_Item_Container {
+    flex: 7;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 5px;
+}
+
+.left_Inner_Contents {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    height: 31%;
+    background-color: white;
+    position: relative;
+}
+
+.totalValues {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    font-size: 0.7rem;
+}
+
+.left_Inner_Contents.algin_Left {
+    margin-left: 5px;
+}
+
+.inner_Top {
+    flex: 1.5;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.inner_Top a {
+    text-decoration: none;
+    color: black;
+}
+
+.inner_Top_Text {
+    flex: 1;
+}
+
+.new_more {
+    font-size: 0.5rem;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.movie_more {
+    font-size: 0.5rem;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.notice_more {
+    font-size: 0.5rem;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.qna_more {
+    font-size: 0.5rem;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+
+
+.inner_Top_Content {
+    flex: 8.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner_Top_Content thead th {
+    padding: 0 70px;
+}
+
+.inner_Top_Content a {
+    text-decoration: none;
+    color: black;
+}
+
+#daily_Enter {
+    flex: 1;
+}
+
+#daily_Movie_Watch {
+    flex: 1;
+}
+
+
+
+/* 공지사항 및 1:1 문의 */
+.noticeTable {
+    flex: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: auto;
+}
+
+.boardNum {
+    flex: 1;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.boardTItle {
+    flex: 3;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.boardWriter {
+    flex: 2;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.boardDate {
+    flex: 3;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.boardWatch {
+    flex: 1;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.tableWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.tableWrapper th {
+    background-color: #ddd;
+    font-size: 0.8rem;
+    color: black;
+}
+
+.tableWrapper td {
+    vertical-align: middle;
+    font-size: 0.7rem;
+}
+
+.tableWrapper tr:nth-child(2n) {
+    background-color: #e6fffe;
+}
+
+.tableWrapper tr:hover {
+    background-color: #747474 !important;
+    color: white;
+}
+
+.tableWrapper tr a:hover {
+    background-color: #747474 !important;
+    color: white !important;
+}
+
+.right_Item_Container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.top_Click_area {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    background-color: #333333;
+}
+
+.top_Click_area div:hover {
+    background-color: red;
+    color: black;
+}
+
+.top_items {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+}
+
+.top_items.active {
+    background-color: #FAE300;
+    color: black;
+}
+
+/* managerMemo 추가_YUN */
+.right_Items_Area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.right_Items_Area>div:nth-child(1) {
+    width: 100%;
+    height: 111px;
+    display: flex;
+    /* flex-direction: column; */
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+/* 등록할 내용 */
+.right_Items_Area>div:nth-child(1)>textarea {
+    width: 90%;
+    height: 90px;
+    resize: none;
+    margin-right: 10px;
+}
+
+/* 등록 버튼 */
+/* .cltbtn */
+.right_Items_Area>div:nth-child(1)>button {
+    width: 10%;
+    height: 90px;
+    display: inline-block;
+}
+
+/* 메모 불러오는 area */
+.managerMemo {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* li = momeList 즉 등록 메모 리스트 */
+.memoList {
+    display: flex;
+    width: 100%;
+    padding: 10px 10px 0 10px;
+}
+
+/* .memoList > textarea */
+.viewMemo {
+    width: 90%;
+    height: 90px;
+    margin-right: 10px;
+    resize: none;
+}
+
+/* .memoList > button */
+.dltbtn {
+    width: 10%;
+    height: 90px;
+    display: inline-block;
+}

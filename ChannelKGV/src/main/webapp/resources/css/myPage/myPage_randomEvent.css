@@ -1,0 +1,116 @@
+/* 랜덤한 영화 뿌려주는 jsp의 css */
+.event-wrap {
+    width: 100%;
+    background-color: black;
+}
+
+.event-wrap>div:nth-child(1) {
+    margin: 0 auto;
+    width: 980px;
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.event-title {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-title>a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+.event-title>a:hover {
+    color: #FCFCFC;
+}
+
+.event-title>div {
+    width: 145px;
+    height: 60px;
+    display: flex;
+}
+
+.event-title>div>button {
+    width: 100%;
+    height: 40px;
+    background-color: #494949;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    color: #FFff;
+    border: none;
+}
+
+.event-title>div>button:hover {
+    background-color: #FCFCFC;
+    color: #191919;
+}
+
+.event-wrap>div:nth-child(1) .swiper-container {
+    height: 100%;
+    position: relative;
+}
+
+
+.event-wrap>div:nth-child(1) .swiper-container .swiper-wrapper .swiper-slide {
+    width: 33%;
+}
+
+.event-wrap>div:nth-child(1) .swiper-container .swiper-wrapper .swiper-slide>a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.event-wrap>div:nth-child(1) .swiper-container .swiper-wrapper .swiper-slide>a>img {
+    width: 100%;
+    height: 207px;
+    border-radius: 10px;
+
+}
+
+.event-wrap>div:nth-child(1) .swiper-container .swiper-wrapper .swiper-slide>a>strong {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.event-wrap>div:nth-child(1) .swiper-container .swiper-wrapper .swiper-slide>a>span {
+    margin-top: 5px;
+}
+
+.event-wrap>div:nth-child(1)>.swiper-container>div:nth-child(2)::after,
+.event-wrap>div:nth-child(1)>.swiper-container>div:nth-child(3)::after {
+    font-size: 1rem;
+    color: black;
+}
+
+.event-wrap>div:nth-child(1)>.swiper-container>div:nth-child(2),
+.event-wrap>div:nth-child(1)>.swiper-container>div:nth-child(3) {
+    width: 44px;
+    height: 44px;
+    color: transparent;
+    background-color: white;
+    border-radius: 50%;
+    line-height: 42px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 1;
+    opacity: 0.3;
+    cursor: pointer;
+    top: 100px;
+    z-index: 5;
+}
+
+.event-wrap>div:nth-child(1)>.swiper-container>div:nth-child(2) {
+    right: -30px;
+}
+
+.event-wrap>div:nth-child(1)>.swiper-container>div:nth-child(3) {
+    left: -30px;
+}

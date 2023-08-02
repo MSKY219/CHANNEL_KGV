@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="questMapper">
+
+	<resultMap type="quest" id="quest_rm">
+		<id property="questNo" column="QUEST_NO" />
+		<result property="questType" column="QUEST_TYPE" />
+		<result property="questTitle" column="QUEST_TITLE" />
+		<result property="questContent" column="QUEST_CONTENT" />
+		<result property="questSt" column="QUEST_ST" />
+		<result property="questTn" column="QUEST_TN" />
+	</resultMap>
+
+
+
+	<select id="selectType" resultMap="quest_rm">
+		SELECT
+		MIN(QUEST_NO) AS
+		QUEST_NO,
+		QUEST_TYPE
+		FROM
+		QUEST_TBL
+		GROUP BY
+		QUEST_TYPE
+		ORDER BY
+		QUEST_NO ASC
+	</select>
+
+	<select id="getcountquestNum" parameterType="int"
+		resultType="int">
+		SELECT COUNT(*) AS count
+		FROM QUEST_TBL
+		<if test="questNum != 0">
+			WHERE QUEST_TN = #{questNum}
+		</if>
+	</select>
+
+	<select id="getcountquestLIST" resultMap="quest_rm">
+		SELECT
+		*
+		FROM
+		QUEST_TBL
+		<choose>
+			<when test="questNum != 0">
+				WHERE QUEST_TN = #{questTn} ORDER BY QUEST_NO ASC
+			</when>
+			<otherwise>
+				ORDER BY QUEST_NO ASC
+			</otherwise>
+		</choose>
+	</select>
+
+
+	<select id="getCountSelectQeustNo" parameterType="String"
+	
+		resultType="int">
+		SELECT
+		CASE WHEN COUNT(*) > 0 THEN COUNT(*)
+		ELSE 0
+		END AS
+		count
+		FROM QUEST_TBL
+		WHERE
+		(UPPER(QUEST_TITLE) LIKE '%' || UPPER(#{keyword}) || '%'
+		OR UPPER(QUEST_CONTENT) LIKE '%' || UPPER(#{keyword}) || '%')
+	</select>
+
+	<select id="getSearchQuestList" resultMap="quest_rm">
+		SELECT *
+		FROM QUEST_TBL WHERE
+		(UPPER(QUEST_TITLE) LIKE '%' || UPPER(#{keyword}) || '%' OR UPPER(QUEST_CONTENT) LIKE '%' || UPPER(#{keyword}) || '%')
+		ORDER BY QUEST_NO ASC
+	</select>
+
+</mapper>

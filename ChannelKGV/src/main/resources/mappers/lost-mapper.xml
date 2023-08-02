@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lostMapper">
+
+	<resultMap type="losts" id="lost_rm">
+		<id property="lostNo" column="LOST_NO" />
+		<result property="userNo" column="USER_NO" />
+		<result property="lostTitle" column="LOST_TITLE" />
+		<result property="lostItem" column="LOST_ITEM" />
+		<result property="lostLocation" column="LOST_LOCATION" />
+		<result property="lostDate" column="LOST_DATE" />
+		<result property="lostFile" column="LOST_FILE" />
+		<result property="lostContent" column="LOST_CONTENT" />
+		<result property="lostWriter" column="LOST_WRITER" />
+		<result property="lostView" column="LOST_VIEW" />
+		<result property="lostSt" column="LOST_ST" />
+		<result property="lostRepWriter" column="LOST_REPWRITER" />
+		<result property="lostRepSt" column="LOST_REPST" />
+		<result property="lostRepContent" column="LOST_REPCONTENT" />
+		<result property="lostRepDate" column="LOST_REPDATE" />
+		<result property="lostPw" column="LOST_PW" />
+	</resultMap>
+
+
+
+	<!-- 표시할 LostCount 조회 -->
+	<select id="getUserLostCount" resultType="_int">
+		SELECT COUNT(LOST_NO) FROM
+		LOST_PACKAGE
+		WHERE
+		<choose>
+			<when
+				test="userNo != null and userNo != 0 and userManagerSt != null and userManagerSt == 1">
+				LOST_PACKAGE.LOST_ST = 'N' ORDER BY LOST_PACKAGE.LOST_NO DESC
+			</when>
+			<when test="userNo != 0  and userManagerSt == 0">
+				LOST_PACKAGE.USER_NO = #{userNo} AND
+				LOST_PACKAGE.LOST_ST = 'N'
+			</when>
+			<otherwise>
+				LOST_PACKAGE.USER_NO = 0 AND LOST_PACKAGE.LOST_ST = 'N'
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- 작성 후 이동할 LostNo조회 -->
+	<select id="selectLostNo" resultType="_int">
+		SELECT MAX(LOST_NO) AS
+		maxLostNo FROM LOST_PACKAGE WHERE USER_NO = ${userNo}
+	</select>
+
+	<!-- LostList 조회 -->
+	<select id="userLostList" resultMap="lost_rm">
+		SELECT
+		*
+		FROM
+		LOST_PACKAGE
+		INNER JOIN
+		USERS ON
+		LOST_PACKAGE.USER_NO =
+		USERS.USER_NO
+		WHERE
+		<choose>
+			<when
+				test="userNo != null and userNo != 0 and userManagerSt != null and userManagerSt == 1">
+				LOST_PACKAGE.LOST_ST = 'N' ORDER BY LOST_PACKAGE.LOST_NO DESC
+			</when>
+			<when test="userNo != 0  and userManagerSt == 0">
+				LOST_PACKAGE.USER_NO = #{userNo} AND
+				LOST_PACKAGE.LOST_ST = 'N'
+				ORDER BY LOST_PACKAGE.LOST_NO DESC
+			</when>
+			<otherwise>
+				LOST_PACKAGE.USER_NO = 0 AND LOST_PACKAGE.LOST_ST = 'N'
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- Lost 고객센터 전용 count -->
+	<select id="getUserLostCount-all" resultType="_int">
+		SELECT
+		COUNT(LOST_NO)
+		FROM LOST_PACKAGE WHERE LOST_ST = 'N'
+	</select>
+
+	<!-- Lost 고객센터 전용 Listselect -->
+	<select id="userLostList-all" resultMap="lost_rm">
+		SELECT
+		LOST_NO,
+		LOST_LOCATION,
+		LOST_TITLE,
+		LOST_DATE,
+		LOST_VIEW,
+		LOST_ITEM,
+		LOST_REPST,
+		LOST_PW,
+		LOST_PACKAGE.USER_NO
+		FROM
+		LOST_PACKAGE
+		INNER JOIN
+		USERS ON
+		LOST_PACKAGE.USER_NO =
+		USERS.USER_NO
+		WHERE LOST_ST = 'N'
+		ORDER BY
+		LOST_PACKAGE.LOST_NO DESC
+	</select>
+
+	<!-- Lost 세부사항 조회 -->
+	<select id="lostdetail" resultMap="lost_rm">
+		SELECT
+		LOST_NO
+		, LOST_TITLE
+		,
+		LOST_CONTENT
+		, LOST_ST
+		, LOST_LOCATION
+		, LOST_ITEM
+		, USER_NO
+		, LOST_DATE
+		,
+		LOST_WRITER
+		, LOST_FILE
+		, LOST_REPST
+		, LOST_REPWRITER
+		, LOST_REPCONTENT
+		,
+		LOST_REPDATE
+		, LOST_PW
+		FROM LOST_PACKAGE
+		WHERE LOST_NO =
+		#{lostNo}AND
+		LOST_ST = 'N'
+		AND LOST_ST = 'N'
+	</select>
+
+	<!-- Lost insert문 -->
+	<insert id="addLost" parameterType="losts">
+		INSERT INTO
+		LOST_PACKAGE
+		VALUES (
+		SEQ_LP_NO.NEXTVAL
+		, #{userNo}
+		, #{lostTitle}
+		, #{lostItem}
+		,
+		#{lostLocation}
+		, #{lostDate}
+		, #{lostFile}
+		, #{lostContent}
+		,
+		#{lostWriter}
+		, DEFAULT
+		, DEFAULT
+		, DEFAULT
+		, DEFAULT
+		, DEFAULT
+		, DEFAULT
+		,
+		#{lostPw}
+		)
+	</insert>
+
+	<!-- Lost 게시물 삭제 -->
+	<update id="deleteLost">
+		UPDATE LOST_PACKAGE SET
+		LOST_ST = 'Y'
+		WHERE LOST_NO =
+		${lostNo}
+	</update>
+
+	<!-- Lost댓글삭제 -->
+	<update id="replyLostDelete">
+		UPDATE LOST_PACKAGE SET
+		LOST_REPST = 'N'
+		WHERE LOST_NO
+		=
+		${lostNo}
+	</update>
+
+	<!-- Lost댓글작성 -->
+	<update id="replyLostWrite">
+		UPDATE LOST_PACKAGE
+		SET
+		LOST_REPCONTENT = #{content},
+		LOST_REPWRITER = #{managerNick},
+		LOST_REPST = 'Y',
+		LOST_REPDATE =
+		DEFAULT
+		WHERE LOST_NO = #{lostNo}
+	</update>
+
+	<!-- 분실물 무결성조회용 비밀번호조회 -->
+	<select id="selectmtmLostPw" resultType="_int">
+		SELECT LOST_PW
+		FROM
+		LOST_PACKAGE
+		WHERE LOST_NO = #{lostNo}
+	</select>
+
+	<!-- 분실물 무결성조회용 유저넘버조회 -->
+	<select id="selectLostUserNo" resultType="_int">
+		SELECT USER_NO
+		FROM
+		LOST_PACKAGE
+		WHERE LOST_NO = #{lostNo}
+	</select>
+
+	<!-- 분실물 조회 카운트 증가 -->
+	<update id="updateLostReadCount">
+		UPDATE LOST_PACKAGE
+		SET
+		LOST_VIEW = LOST_VIEW+1
+		WHERE
+		LOST_NO = #{lostNo}
+	</update>
+
+	<update id="updateLost" parameterType="losts">
+		UPDATE LOST_PACKAGE SET
+		LOST_TITLE = #{lostTitle}
+		, LOST_ITEM = #{lostItem}
+		, LOST_LOCATION =
+		#{lostLocation}
+		, LOST_DATE = #{lostDate}
+		, LOST_FILE = #{lostFile}
+		,
+		LOST_CONTENT = #{lostContent},
+		LOST_PW = #{lostPw}
+		WHERE LOST_NO=#{lostNo}
+	</update>
+
+	<select id="getSearchLostCount" parameterType="map"
+		resultType="int">
+		SELECT
+		CASE WHEN COUNT(*) > 0 THEN COUNT(*)
+		ELSE 0
+		END AS count
+		FROM LOST_PACKAGE
+		WHERE LOST_LOCATION = ('[' || #{area} || ']' || #{name} || '점')
+		AND
+		(
+		<choose>
+			<when test="keyword != null and keyword != ''">
+				(UPPER(LOST_TITLE) LIKE '%' || UPPER(#{keyword}) || '%'
+				OR UPPER(LOST_CONTENT) LIKE '%' || UPPER(#{keyword}) || '%')
+			</when>
+			<otherwise>
+				1=1
+			</otherwise>
+		</choose>
+		)
+		AND
+		<choose>
+			<when
+				test="userNo != null and userNo != 0 and userManagerSt != null and userManagerSt == 1">
+				LOST_PACKAGE.LOST_ST = 'N'
+			</when>
+			<when test="userNo != 0  and userManagerSt == 0">
+				LOST_PACKAGE.USER_NO = #{userNo} AND LOST_PACKAGE.LOST_ST = 'N'
+			</when>
+			<otherwise>
+				LOST_PACKAGE.LOST_PW = 0 AND LOST_PACKAGE.LOST_ST='N'
+			</otherwise>
+		</choose>
+	</select>
+
+
+	<select id="selectSearchLOST" resultMap="lost_rm">
+		SELECT *
+		FROM
+		LOST_PACKAGE WHERE
+		LOST_LOCATION = ('[' || #{area} || ']' || #{name} || '점')
+		AND
+		(
+		<choose> 
+			<when test="keyword != null and keyword != ''">
+				(UPPER(LOST_TITLE) LIKE '%' || UPPER(#{keyword}) || '%' OR
+				UPPER(LOST_CONTENT) LIKE '%' || UPPER(#{keyword}) || '%')
+			</when>
+			<otherwise>
+				1=1
+			</otherwise>
+		</choose>
+		)
+		AND
+		(
+		<choose>
+			<when
+				test="userNo != null and userNo != 0 and userManagerSt != null and userManagerSt == 1">
+				LOST_PACKAGE.LOST_ST = 'N'
+			</when>
+			<when test="userNo != 0  and userManagerSt == 0">
+				LOST_PACKAGE.USER_NO = #{userNo} AND LOST_PACKAGE.LOST_ST = 'N'
+			</when>
+			<otherwise>
+				LOST_PACKAGE.LOST_PW = 0 AND LOST_PACKAGE.LOST_ST='N'
+			</otherwise>
+		</choose>
+		)
+		ORDER BY LOST_PACKAGE.LOST_NO DESC
+	</select> 
+
+
+
+
+
+</mapper>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="myPageMapper">
+
+	<!-- 파라미터 타입이 map인 경우
+	
+		1) parameterType="java.util.Map"
+		
+		2) parameterType="map" (별칭)
+	
+		3) 생략 (TypeHandler가 알아서 지정해줌)
+	
+	 -->
+	 
+	 <resultMap type="user" id="user_rm">
+		<id property="userNo" column="USER_NO" />
+		<result property="userEmail" column="USER_EMAIL" />
+		<result property="userPw" column="USER_PW" />
+		<result property="userName" column="USER_NAME" />
+		<result property="userNick" column="USER_NICKNAME" />
+		<result property="userTel" column="USER_TEL" />
+		<result property="userAddr" column="USER_ADDR" />
+		<result property="userBirth" column="USER_BIRTH" />
+		<result property="userGender" column="USER_GENDER" />
+		<result property="userRegDate" column="USER_REGDATE" />
+		<result property="userSt" column="USER_ST" />
+		<result property="userImg" column="USER_IMG" />
+		<result property="userPoint" column="USER_POINT" />
+		<result property="userSns" column="USER_SNS" />
+		<result property="userDelete" column="USER_DELETE" />
+		<result property="userManagerSt" column="USER_MANAGERST" />
+		<result property="userBlock" column="USER_BLOCK" />
+	</resultMap>
+	
+	 <resultMap type="movie" id="movie_rm">
+		<id property="movieNo" column="MOVIE_NO" />
+		<result property="movieRuntime" column="MOVIE_RUNTIME" />
+		<result property="movieTitle" column="MOVIE_TITLE" />
+		<result property="movieNation" column="MOVIE_NATION" />
+		<result property="movieOpen" column="MOVIE_OPEN" />
+		<result property="mgNo" column="MG_CONTENT" />
+		<result property="movieContent" column="MOVIE_CONTENT" />
+		<result property="movieDirector" column="MOVIE_DIRECTOR" />
+		<result property="movieCast" column="MOVIE_CAST" />
+		<result property="moviePlayed" column="MOVIE_PLAYED" />
+		<result property="movieWatched" column="MOVIE_WATCHED" />
+		<result property="movieRegdate" column="MOVIE_REGDATE" />
+		<result property="movieUploader" column="MOVIE_UPLOADER" />
+		<result property="genreName" column="GENRE_NAME" />
+		<result property="movieImg1" column="MOVIE_IMG1" />
+		<result property="movieImg2" column="MOVIE_IMG2" />
+		<result property="movieImg3" column="MOVIE_IMG3" />
+		<result property="movieImg4" column="MOVIE_IMG4" />
+		<result property="movieImg5" column="MOVIE_IMG5" />
+		<result property="movieImg6" column="MOVIE_IMG6" />
+		<result property="movieSt" column="MOVIE_ST" />
+	</resultMap>
+	
+	<resultMap type="review" id="review_rm">
+		<id property="revNo" column="REV_NO" />
+		<result property="movieNo" column="MOVIE_NO" />
+		<result property="userNo" column="USER_NO" />
+		<result property="revContent" column="REV_CONTENT" />
+		<result property="revSt" column="REV_ST" />
+		<result property="revLike" column="REV_LIKE" />
+		<result property="revDate" column="REV_DATE" />
+		<result property="revTime" column="REV_TIME" />
+		<result property="revFixed" column="REV_FIXED" />
+		<result property="totalRow" column="totalRow" />
+	</resultMap>
+	
+	<resultMap type="mtm" id="mtm_rm">
+		<id property="mtmNo" column="MTM_NO" />
+		<result property="mtmTitle" column="MTM_TITLE" />
+		<result property="mtmContent" column="MTM_CONTENT" />
+		<result property="mtmSt" column="MTM_ST" />
+		<result property="mtmType" column="MTM_TYPE" />
+		<result property="userNo" column="USER_NO" />
+		<result property="mtmImage" column="MTM_IMAGE" />
+		<result property="mtmRegdate" column="MTM_REGDATE" />
+		<result property="mtmCount" column="MTM_COUNT" />
+		<result property="mtmWriter" column="MTM_WRITER" />
+		<result property="mtmRepWriter" column="MTM_REPWRITER" />
+		<result property="mtmRepSt" column="MTM_REPST" />
+		<result property="mtmRepContent" column="MTM_REPCONTENT" />
+		<result property="mtmRepDate" column="MTM_REPDATE" />
+	</resultMap>
+	
+	<resultMap type="losts" id="lost_rm">
+		<id property="lostNo" column="LOST_NO" />
+		<result property="userNo" column="USER_NO" />
+		<result property="lostTitle" column="LOST_TITLE" />
+		<result property="lostItem" column="LOST_ITEM" />
+		<result property="lostLocation" column="LOST_LOCATION" />
+		<result property="lostDate" column="LOST_DATE" />
+		<result property="lostFile" column="LOST_FILE" />
+		<result property="lostContent" column="LOST_CONTENT" />
+		<result property="lostWriter" column="LOST_WRITER" />
+		<result property="lostView" column="LOST_VIEW" />
+		<result property="lostSt" column="LOST_ST" />
+		<result property="lostRepWriter" column="LOST_REPWRITER" />
+		<result property="lostRepSt" column="LOST_REPST" />
+		<result property="lostRepContent" column="LOST_REPCONTENT" />
+		<result property="lostRepDate" column="LOST_REPDATE" />
+	</resultMap>
+	
+	<resultMap type="book" id="book_rm">
+		<id property="bookNo" column="BOOK_NO" />
+		<result property="playNo" column="PLAY_NO" />
+		<result property="userNo" column="USER_NO" />
+		<result property="movieNo" column="MOVIE_NO" />
+		<result property="bookDt" column="BOOK_DT" />
+		<result property="bookAge" column="BOOK_AGE" />
+		<result property="bookSeat" column="BOOK_SEAT" />
+		<result property="bookPrice" column="BOOK_PRICE" />
+		<result property="bookSt" column="BOOK_ST" />
+		<result property="totalRow" column="totalRow" />
+	</resultMap>
+	
+	<resultMap type="screen" id="screen_rm">
+		<id property="screenNo" column="SCREEN_NO" />
+		<result property="cinemaName" column="CINEMA_NAME" />
+		<result property="screenName" column="SCREEN_NAME" />
+		<result property="screenStyle" column="SCREEN_STYLE" />
+		<result property="screenSeat" column="SCREEN_SEAT" />
+		<result property="screenDetail" column="SCREEN_DETAIL" />
+		<result property="screenRow" column="SCREEN_ROW" />
+		<result property="screenCol" column="SCREEN_COL" />
+		<result property="screenAisle" column="SCREEN_AISLE" />
+		<result property="screenSpace" column="SCREEN_SPACE" />
+		<result property="screenSweet" column="SCREEN_SWEET" />
+		<result property="screenImpaired" column="SCREEN_IMPAIRED" />
+	</resultMap>
+	
+	<resultMap type="play" id="play_rm">
+		<id property="playNo" column="PLAY_NO" />
+		<result property="movieNo" column="MOVIE_NO" />
+		<result property="screenNo" column="SCREEN_NO" />
+		<result property="playStart" column="PLAY_START" />
+		<result property="playEnd" column="PLAY_END" />
+		<result property="playRegDate" column="PLAY_REGDATE" />
+		<result property="playUploader" column="PLAY_UPLOADER" />
+		<result property="playBookCount" column="PLAY_BOOKCOUNT" />
+		<result property="playBookSeat" column="PLAY_BOOKSEAT" />
+		<result property="playDate" column="PLAY_DATE" />
+	</resultMap>
+	
+	<resultMap type="jr" id="jr_rm">
+		<collection property="review" resultMap="review_rm" />
+		<collection property="movie" resultMap="movie_rm" />
+		<collection property="user" resultMap="user_rm" />
+	</resultMap>
+	
+	<resultMap type="jm" id="jm_rm">
+		<collection property="book" resultMap="book_rm" />
+		<collection property="play" resultMap="play_rm" />
+		<collection property="movie" resultMap="movie_rm" />
+		<collection property="user" resultMap="user_rm" />
+		<collection property="screen" resultMap="screen_rm" />
+	</resultMap>
+	
+	<resultMap type="jcs" id="jcs_rm">
+		<collection property="user" resultMap="user_rm" />
+		<collection property="losts" resultMap="lost_rm" />
+		<collection property="mtm" resultMap="mtm_rm" />
+	</resultMap>
+		
+	<!-- 현재 로그인한 회원의 암호화된 비밀번호 조회 -->
+	<!-- 현재 로그인한 회원의 암호화된 비밀번호 조회 -->
+   <select id="selectEncPw" resultType="string">
+      SELECT USER_PW FROM USERS
+      WHERE USER_NO = ${userNo}
+   </select>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="changePw">
+		UPDATE USERS SET
+		USER_PW = #{newPw}
+		WHERE USER_NO = ${userNo}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<update id="secession">
+		UPDATE USERS SET
+		USER_ST = 'N'
+		WHERE USER_NO = ${userNo}
+	</update>
+		
+	<!-- 회원 정보 수정 -->
+	<update id="updateInfo">
+		UPDATE USERS SET
+		USER_NICKNAME = #{updateNick},
+		USER_TEL = #{updateTel},
+		USER_ADDR = #{userAddr}
+		WHERE USER_NO = ${userNo}
+	</update>
+	<!-- 리뷰카드 부르기 기본형식 -->
+	<!-- 
+	<select id="myReviewList" resultMap="jr_rm">
+		SELECT 
+	 		r.REV_CONTENT
+	 		, m.MOVIE_NO
+	 		, m.MOVIE_TITLE
+	 		, m.MOVIE_IMG1
+	 		, TO_CHAR(REV_DATE, 'YYYY-MM-DD') AS REV_DATE
+	 		, TO_CHAR(REV_DATE, 'HH24:MI') AS REV_TIME
+		FROM REVIEW r
+		INNER JOIN MOVIE m ON r.MOVIE_NO = m.MOVIE_NO
+			WHERE USER_NO = ${userNo}
+			AND REV_ST = 'N'
+	</select>
+	 -->
+	
+	<!-- 리뷰카드 부르기 -->
+	<!-- 
+	<select id="loadReviewCards" resultMap="jr_rm">
+		SELECT 
+    		*
+		FROM (
+			SELECT
+        	REV_NO,
+        	REV_CONTENT,
+        	MOVIE_NO,
+        	MOVIE_TITLE,
+        	MOVIE_IMG1,
+        	REV_DATE,
+        	REV_TIME,
+        	COUNT(*) OVER () AS totalRow,
+        	ROW_NUMBER() OVER (ORDER BY REV_NO DESC) AS row_num
+    		FROM (
+    			SELECT
+    				r.REV_NO,
+        			r.REV_CONTENT,
+        			m.MOVIE_NO,
+        			m.MOVIE_TITLE,
+        			m.MOVIE_IMG1,
+        			TO_CHAR(r.REV_DATE, 'YYYY-MM-DD') AS REV_DATE,
+        			TO_CHAR(r.REV_DATE, 'HH24:MI') AS REV_TIME
+    			FROM REVIEW r
+    			INNER JOIN MOVIE m ON r.MOVIE_NO = m.MOVIE_NO
+    			WHERE r.USER_NO = ${userNo} AND r.REV_ST = 'N'
+    		)
+		)
+		WHERE row_num BETWEEN ${startRow} AND ${endRow}
+	</select>
+	 -->
+
+	<!-- usermtmlist count 조회 sql -->
+	<select id="getUserMtmCount" resultType="_int">
+		SELECT
+			COUNT(MTM_NO)
+		FROM MTM_TBL
+		WHERE USER_NO = ${userNo}
+		AND MTM_ST = 'N'
+	</select>
+	
+	<!-- usermtmlist 1:1 문의 목록 조회 -->
+	<select id="getmtmlist" resultMap="jcs_rm">
+		SELECT
+			MTM_NO
+			, MTM_TITLE
+			, TO_CHAR(MTM_REGDATE, 'YYYY.MM.DD') AS MTM_REGDATE
+			, MTM_COUNT
+			, MTM_TYPE
+			, MTM_PW
+			, MTM_REPST
+			, USER_NO
+			FROM MTM_TBL 
+			WHERE
+			USER_NO = ${userNo} 
+			AND MTM_ST = 'N'
+			ORDER BY MTM_NO DESC
+	</select>
+	
+	<!-- userlostlist count 조회 sql -->
+	<select id="getUserLostCount" resultType="_int">
+		SELECT
+			COUNT(LOST_NO)
+		FROM LOST_PACKAGE
+		WHERE USER_NO = ${userNo}
+		AND LOST_ST = 'N'
+	</select>
+	
+	<!-- usermtmlist 1:1 문의 목록 조회 -->
+	<select id="getlostlist" resultMap="jcs_rm">
+		SELECT
+			LOST_NO
+			, LOST_TITLE
+			, TO_CHAR(LOST_REPDATE, 'YYYY.MM.DD') AS LOST_REPDATE
+			, LOST_VIEW
+			, LOST_LOCATION
+			, LOST_PW
+			, LOST_REPST
+			, USER_NO
+			FROM LOST_PACKAGE 
+			WHERE
+			USER_NO = ${userNo} 
+			AND LOST_ST = 'N'
+			ORDER BY LOST_NO DESC
+	</select>
+	
+	<!-- 리뷰카드 부르기 -->
+	<select id="loadReviewCards" resultMap="jr_rm">
+		SELECT 
+    		*
+		FROM (
+			SELECT
+        		r.REV_NO,
+        		r.REV_CONTENT,
+        		m.MOVIE_NO,
+        		m.MOVIE_TITLE,
+        		m.MOVIE_IMG1,
+        		TO_CHAR(r.REV_DATE, 'YYYY-MM-DD') AS REV_DATE,
+        		TO_CHAR(r.REV_DATE, 'HH24:MI') AS REV_TIME,
+        		ROW_NUMBER() OVER (ORDER BY REV_NO DESC) AS row_num,
+        		COUNT(*) OVER () AS totalRow
+    		FROM REVIEW r
+    		INNER JOIN MOVIE m ON r.MOVIE_NO = m.MOVIE_NO
+    		WHERE r.USER_NO = ${userNo} AND r.REV_ST = 'N'
+		) sum
+		WHERE sum.row_num BETWEEN ${startRow} AND ${endRow}
+	</select>
+	
+	<!-- 리뷰 카드 삭제 -->
+	<update id="reviewDelete">
+		UPDATE REVIEW SET
+		REV_ST = 'Y'
+		WHERE REV_NO = ${revNo}
+	</update>
+	 
+	<!-- 영화 카드 부르기 -->
+	<select id="loadMovieCards" resultMap="jm_rm">
+		SELECT 
+    		*
+		FROM (
+			SELECT
+        		b.BOOK_NO,
+        		b.BOOK_SEAT,
+        		b.BOOK_AGE,
+        		m.MOVIE_NO,
+        		m.MOVIE_TITLE,
+        		m.MOVIE_IMG1,
+        		TO_CHAR(p.PLAY_START, 'YYYY-MM-DD') AS PLAY_DATE,
+        		TO_CHAR(p.PLAY_START, 'HH24:MI') AS PLAY_START,
+        		TO_CHAR(p.PLAY_END, 'HH24:MI') AS PLAY_END,
+        		s.CINEMA_NAME,
+        		s.SCREEN_STYLE,
+        		s.SCREEN_NAME,
+        		ROW_NUMBER() OVER (ORDER BY BOOK_NO DESC) AS row_num,
+        		COUNT(*) OVER () AS totalRow
+    		FROM BOOK b
+    		INNER JOIN MOVIE m ON b.MOVIE_NO = m.MOVIE_NO
+    		INNER JOIN PLAY p ON b.PLAY_NO = p.PLAY_NO
+    		INNER JOIN SCREEN s ON p.SCREEN_NO = s.SCREEN_NO
+    		WHERE b.USER_NO = ${userNo} AND b.BOOK_ST = 'Y'
+		) sum
+		WHERE sum.row_num BETWEEN ${startRow} AND ${endRow}
+	</select>
+	
+	<!-- 영화 카드 삭제 -->
+	<update id="deleteBook">
+		UPDATE BOOK SET
+		BOOK_ST = 'D'
+		WHERE BOOK_NO = ${bookNo}
+	</update>
+  	
+</mapper>

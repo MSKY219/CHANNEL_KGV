@@ -1,0 +1,201 @@
+main>section {
+    width: 1040px;
+    margin: 0 auto;
+    padding: 50px 30px 0 30px;
+    display: flex;
+    justify-content: space-between !important;
+    flex-wrap: wrap;
+}
+
+h2 {
+    font-size: 1.8rem;
+    padding: 0 0 30px 10px;
+    border-bottom: 3px solid rgb(255, 196, 0);
+    margin-bottom: 30px;
+}
+
+.aslide-list>li:nth-child(3)>a {
+    background-color: #FFC400;
+    color: black;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: "GmarketSansMedium";
+    /* color: rgb(222, 222, 222); */
+    list-style-type: none;
+}
+
+/* form속 div class주던가 해서 정렬해야함 생각 좀 해보기 왜냐하면 페이지마다 보여지는 형식이 다름
+그러니 어떻게 넣을건지 생각 좀 더 해보자!! */
+/* 내가 본 영화 페이지 css */
+.mymovie{
+    width: 100%;
+    height: 250px;
+    /* border: 1px solid red; */
+    padding: 20px 0 20px 30px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(44, 44, 44);
+    font-size: 1rem;
+    font-weight: bold;
+}
+.mymovie>div{
+    width: 100%;
+    height: 100%;
+    /* padding-top: 1%; */
+
+    /* border: 1px solid red; */
+    display: flex;
+}
+/* 내가본 영화 포스터 */
+.mymovie>div>div:nth-child(1){
+    width: 25%;
+    height: 100%;
+    border: 0.1px solid rgb(255, 196, 0);
+    border-radius: 5%;
+}
+.mymovie>div>div:nth-child(1)>a{
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.mymovie>div>div:nth-child(1)>a>img{
+    width: 186px;
+    height: 208px;
+    border-radius: 5%;
+}
+/* 내가본 영화 정보 */
+.mymovie>div>div:nth-child(2){
+    width: 65%;
+    height: 100%;
+
+    /* border: 1px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1rem;
+}
+.mymovie>div>div:nth-child(2)>div:nth-child(1){
+    width: 100%;
+    height: 15%;
+
+    margin-bottom: 1%;
+
+    display: flex;
+    justify-content: space-between;
+    
+    /* border: 1px solid red; */
+}
+.mymovie>div>div:nth-child(2)>div:nth-child(1)>div{
+    font-size: 1.3rem;
+    color: #FFC400;
+}
+.mymovie>div>div:nth-child(2)>div:nth-child(2){
+    width: 100%;
+    height: 67%;
+    margin-bottom: 1%;
+    display: flex;
+
+}
+.mymovie>div>div:nth-child(2)>div:nth-child(2)>ul:nth-child(1){
+    width: 15%;
+    height: 100%;
+    margin-right: 10px;
+    /* border: 1px solid red; */
+
+    /* margin: 20px 0 0 0; */
+    /* border-top: 2px solid rgb(200, 200, 200); */
+    /* border-top: 2px solid #FAE300; */
+}
+.mymovie>div>div:nth-child(2)>div:nth-child(2)>ul:nth-child(2){
+    width: 80%;
+    height: 100%;
+}
+.mymovie>div>div:nth-child(2)>div:nth-child(2)>ul:nth-child(1)>li{
+    height: 25%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.mymovie>div>div:nth-child(2)>div:nth-child(2)>ul:nth-child(2)>li{
+    height: 25%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-weight: lighter;
+}
+.mymovie>div>div:nth-child(2)>div:nth-child(3){
+    width: 100%;
+    height: 15%;
+    
+    margin-top: 1%;
+    /* border: 1px solid red; */
+}
+/* 리뷰 남기러 가기 버튼 */
+#goreview-btn{
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    background-color: #494949;
+    color: #FFff !important;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+#goreview-btn:hover {
+    background-color: #FFC400;
+    color: black !important;
+
+}
+/* .listmore-btn{
+    width: 700px;
+    height: 40px;
+    border-radius: 5px;
+} */
+#list-more-btn{
+    width: 100%;
+    height: 40px;
+    background-color: #494949;
+    color: #FFff;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    color: rgb(200, 200, 200);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+
+    margin: 30px 0;
+}
+#list-more-btn:hover {
+    background-color: #FCFCFC;
+    color: #191919;
+}
+
+/* i태그 delete 버튼 */
+.fa-regular{
+    font-size: 1.5rem;
+}
+.fa-regular:hover{
+    content: "\f057";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.5rem;
+    /* margin-right: 10px; */
+    color: #FAE300;
+}

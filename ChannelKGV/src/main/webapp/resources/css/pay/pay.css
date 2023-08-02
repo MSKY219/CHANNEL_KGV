@@ -1,0 +1,338 @@
+::-webkit-scrollbar {display: none; }
+
+
+main>:nth-child(1)>div {
+    margin: 10px;
+
+    width: 100%;
+    height: 600px;
+
+
+    display: flex;
+
+    justify-content: center;
+}
+
+main>:nth-child(1)>div>div {
+    margin: 10px 0 0 0;
+    padding: 50px 20px 20px 20px;
+
+    width: 60%;
+    height: 80%;
+
+    border: 1px solid rgb(255, 255, 255);
+}
+
+/* 타이틀 영역 */
+main>:nth-child(1)>div>div>:nth-child(1) {
+    padding: 0 0 26px 0;
+    font-size: 2rem;
+
+    border-bottom: 1px solid rgb(255, 255, 255);
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: flex-end;
+
+}
+
+/* 예매 내역 span */
+main>:nth-child(1)>div>div>:nth-child(1)>span {
+    font-size: 2rem;
+}
+
+
+
+
+
+
+/* 할인&혜택 영역 */
+main>:nth-child(1)>div>div>:nth-child(2) {
+    padding: 20px 0 20px 0;
+    margin: 0 0 100px 0;
+
+    width: 100%;
+    height: 20%;
+}
+
+
+.slide_none {
+    border-radius: 5px;
+
+    display: none;
+}
+
+.slide_block {
+    border-radius: 5px;
+
+    display: block;
+
+}
+
+
+.discount_step_li {
+    padding: 10px;
+    border: 1px solid ivory;
+
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.discount_step_li:hover {
+    background-color: rgb(115, 115, 115);
+}
+
+
+
+.discount_step_li>span {
+    padding: 0 0 0 5px;
+    width: 100%;
+    height: 30%;
+}
+
+.click_change_bColor {
+    background-color: rgb(115, 115, 115);
+}
+
+.displayChoice {
+    /* 초기 상태 */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.9s;
+}
+
+.displayChoice.slide_block {
+    /* 아래로 늘어나는 효과 적용 상태 */
+    max-height: 500px;
+    /* 적절한 높이 값을 설정해주세요 */
+}
+
+
+
+/* 결제 api 전 단계 영역 */
+main>:nth-child(1)>div>div>:nth-child(3) {
+    border-top: 1px solid white;
+
+
+    width: 100%;
+    height: 20%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+table {
+
+
+    width: 100%;
+    height: 100%;
+}
+
+.minus {
+    font-size: 20px;
+}
+
+/* 결제하기 영역 */
+main>:nth-child(1)>div>div>:nth-child(4) {
+    width: 100%;
+    height: 20%;
+
+
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+main>:nth-child(1)>div>div>:nth-child(4)>div {
+    width: 25%;
+    height: 50%;
+
+}
+
+.payBtn {
+    width: 100%;
+    height: 100%;
+}
+
+/* /////////////////////////////////////////////////////////////////// */
+
+.modal {
+    background-color: rgb(0, 0, 0, 0);
+
+    top: 10%;
+}
+
+.modal>:nth-child(1) {
+    margin: auto;
+    background-color: rgb(45, 44, 44);
+    width: 510px;
+    padding: 10px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modal>:nth-child(2) {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    margin: auto;
+    background-color: rgb(55, 54, 54);
+    width: 510px;
+    height: 550px;
+
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 0 1px 1px 1px solid blue;
+}
+
+.box_1 {
+    background-color: rgb(43, 42, 42);
+}
+
+.box_1>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.box_2_1 {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.box_2_2 {
+    background-color: rgb(80, 79, 79);
+    margin: 0 0 20px 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_2_2>* {
+    margin: 5px;
+}
+
+.box_2_2>:nth-child(2) {
+    width: 200px;
+}
+
+.box_2_2>:nth-child(2)>input {
+    width: 200px;
+    height: 30px;
+    color: black;
+}
+
+/* 테이블 관련 */
+
+#container2_3 {
+    margin: 15px 0;
+}
+
+.box_2_3 {
+    
+    width: 100%;
+    height: 172px;
+}
+
+.ticketTable_1 {
+    height: 40px;
+    border-collapse: collapse;
+}
+.ticketTable_2 {
+    height: 40px;
+    border-collapse: collapse;
+}
+
+
+
+
+.ticketTable_1 tr th {
+    border: 1px solid white;
+    
+}
+.ticketTable_2 tr th {
+    height: 35px;
+    border: 1px solid white;
+    
+}
+
+
+.ticketTable_1 tr>:nth-child(1){
+    width: 60.5%;
+}
+.ticketTable_1 tr>:nth-child(2){
+    width: 20.5%;
+}
+.ticketTable_1 tr>:nth-child(3){
+    width: 17.5%;
+}
+
+.ticketTable_2 th:nth-child(1) {
+    width: 65%;
+}
+.ticketTable_2 th:nth-child(2) {
+    width: 20%;
+}
+.ticketTable_2 th:nth-child(3) {
+    width: 15%;
+}
+
+#movieTicket {
+    height: 30px;
+}
+
+.box_2_3_2 {
+    overflow: auto;
+    height: 135px;
+}
+
+
+/* 이용안내 */
+
+.box_2_4 {
+    margin-bottom: 20px;
+    padding: 10px;
+
+    border: 1px solid black;
+}
+
+.box_3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.box_3>div>button {
+    width: 70px;
+    height: 25px;
+}
+
+.exitBtn {
+    cursor: pointer;
+}
+
+
+button {
+	color: #a3a3a3;
+    cursor: pointer;
+}
+
+.ticketTable_2>tbody {
+	height: 35px;
+}

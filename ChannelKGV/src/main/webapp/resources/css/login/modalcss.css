@@ -1,0 +1,222 @@
+
+
+
+/* =============================================================== */
+/* 아래부터 추가하세요. */
+
+#modalcss {
+    /* width: 1160px;
+    height: 3000px;
+    border: 1px solid red;
+    margin: 0 auto;
+    padding: 0 20px; */
+
+    width: 100%;
+    margin: 0 auto;
+}
+
+#modalcss>div {
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+#modalcss>div>div {
+    width:  400px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    border-radius: 10px;
+    background-color: rgb(33,33,33);
+}
+
+/* 프레임 */
+#modalcss>div>div>div {
+    width: 80%;
+    height: 100%;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 로고 영역  */
+#modalcss>div>div>div>:nth-child(1) {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modalcss>div>div>div>:nth-child(1) > p{
+    font-size:1.8rem;
+    font-weight: bold;
+    color:rgb(250, 227, 0);
+    padding:25px;
+}
+
+/* 로고 */
+#modalcss>div>div>div>:nth-child(1)>div>a> {
+    width: 150px;
+    height: 100px;
+}
+
+#modalcss>div>div>div>:nth-child(1)>div>a>img {
+    width: 150px;
+    height: 50px;
+}
+
+/* 로그인 영역 */
+#modalcss>div>div>div>:nth-child(2) {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modalcss>div>div>div>:nth-child(2)>form {
+    width: 90%;
+    height: 80%;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#modalcss>div>div>div>:nth-child(2)>form>div {
+    width: 100%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#modalcss>div>div>div>:nth-child(2)>form>div>:nth-child(1)>div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* id&pw input */
+#modalcss>div>div>div>:nth-child(2)>form>div>:nth-child(1)>:nth-child(1)>:nth-child(1) {
+
+    width: 365px;
+    height: 40px;
+
+    border-radius: 5px;
+    background-color: rgba(100, 100, 100);
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    background-size: 20px;
+    padding-left: 10px;
+    margin:10px 0;
+    outline: none;
+    border:none;
+}
+
+/* id&pw input */
+#modalcss>div>div>div>:nth-child(2)>form>div>:nth-child(1)>:nth-child(1)>:nth-child(2) {
+    margin-top: 5px;
+    width: 365px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgba(100, 100, 100);
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    background-size: 20px;
+    padding-left: 10px;
+    margin:10px 0;
+    outline: none;
+    border:none;
+
+}
+
+/* 아이디 저장 부분*/
+
+.keep_area .bb:before {
+    margin-right: 5px;
+    content: "\f058";
+    font-family: "Font Awesome 5 Free";
+    cursor: pointer;
+}
+
+input#saveId:checked + label.bb:before {
+    content: "\f058";
+    font-weight: 900;
+    color:rgb(250, 227, 0);
+}
+
+input#saveId {
+    display: none;
+}
+
+/* 로그인 버튼 */
+#modalcss>div>div>div>:nth-child(2)>form>div>:nth-child(2)>button {
+    margin-top: 5px;
+    width: 365px;
+    height: 40px;
+
+    margin: 10px 0;
+
+    color: #DEDEDE;
+    border:none;
+    outline: none;
+
+    border-radius: 5px;
+    background-color: rgba(100, 100, 100);
+
+    cursor: pointer;
+}
+
+#modalcss>div>div>div>:nth-child(2)>form>div>:nth-child(2)>button:hover {
+    color:rgb(250, 227, 0)
+}
+
+/* SNS 로그인 */
+#modalcss>div>div>div>:nth-child(3) {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+#modalcss>div>div>div>:nth-child(3)>li>a>img {
+    margin:10px 5px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+}
+
+
+
+
+
+
+/* 하단 버튼 영역 */
+#modalcss>div>div>ul {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+#modalcss>div>div>ul>li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* span | 태그 */
+#modalcss>div>div>ul>span {
+    margin: 10px;
+}

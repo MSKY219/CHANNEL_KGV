@@ -1,0 +1,410 @@
+main>div:nth-child(1) {
+    width: 100%;
+    HEIGHT: 100%;
+    background-color: black;
+}
+
+main>div:nth-child(1)>div {
+    width: 980px;
+    padding: 0 30px;
+    margin: 0 auto;
+    height: 300px;
+    text-align: center;
+
+}
+
+
+.spanCLS{
+    margin-top:50px;
+    width:100%;
+    height:100px;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+}
+
+.spanCLS p{
+    font-size: 2.5rem;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+main>div:nth-child(1)>div>ul {
+    display: flex;
+    padding: 0 30px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+
+}
+
+main>div:nth-child(1)>div>ul>li {
+    padding: 30px 50px;
+
+}
+
+
+main>div:nth-child(1) a {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color:white;
+}
+
+.topBg_imgarea ul li:nth-child(2) a {
+    color:rgb(255, 196, 0) !important;
+}
+
+main>div:nth-child(1) a:hover {
+    color: rgb(255, 196, 0);
+    text-decoration: underline;
+}
+
+
+
+
+/* 두번째 영역 */
+
+main>div:nth-child(2) {
+    width: 100%;
+
+}
+
+
+main>div:nth-child(2)>div {
+    width: 1040px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+.left_stheaterwrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left_stheaterwrap span {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.left_stheaterwrap span:nth-child(2) {
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+
+
+/* 3 */
+main>div:nth-child(3) {
+    height: 600px;
+    padding: 50px 30px;
+}
+
+main>div:nth-child(3)>div {
+    width: 1040px;
+    padding: 0 30px;
+    height: 100%;
+    border-radius: 10px;
+    background-size: 100%;
+    position: relative;
+    border-radius: 10px;
+    margin: 0 auto;
+
+}
+
+main>div:nth-child(3)>div>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+main>div:nth-child(3)>div>p {
+    position: absolute;
+    bottom: 60px;
+    font-size: 2.5rem;
+    left: 50px;
+    font-weight: bold;
+}
+
+
+
+main>div:nth-child(4) {
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+}
+
+
+main>div:nth-child(4)>div:nth-child(1) {
+    width: 1040px;
+    margin: 0 auto;
+    height: 580px;
+    padding: 50px 30px;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+main>div:nth-child(4)>div:nth-child(1)>div {
+    width: 33%;
+    border-radius: 10px;
+
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+main>div:nth-child(4)>div>img {
+    height: 66%;
+    border-radius: 50%;
+
+}
+
+main>div:nth-child(4)>div>div {
+    height: 34%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+main>div:nth-child(4)>div>div p {
+    font-size: 2rem;
+    padding: 10px;
+}
+
+main>div:nth-child(4)>div>div>span {
+    font-size: 1.2rem;
+}
+
+
+
+
+main>div:nth-child(5) {
+    width: 1040px;
+    margin: 0 auto;
+    height: 600px;
+    padding: 50px 30px 0 30px;
+    display: flex;
+}
+
+main>div:nth-child(5)>div {
+    width: 100%;
+    background-size: 100%;
+    position: relative;
+    border-radius: 10px;
+}
+
+main>div:nth-child(5)>div>img {
+    width: 100%;
+    height: 550px;
+    border-radius: 10px;
+}
+
+main>div:nth-child(5)>div>p {
+    position: absolute;
+    bottom: 60px;
+    font-size: 2.5rem;
+    left: 50px;
+    font-weight: bold;
+}
+
+
+
+main>div:nth-child(6) {
+    width: 1040px;
+    margin: 0 auto;
+    height: 600px;
+    padding: 50px 30px 0 30px;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+main>div:nth-child(6)>div {
+    width: 100%;
+    background-size: 100%;
+    position: relative;
+    border-radius: 10px;
+}
+
+main>div:nth-child(6)>div>img {
+    width: 100%;
+    height: 550px;
+    border-radius: 10px;
+}
+
+main>div:nth-child(6)>div>p {
+    position: absolute;
+    bottom: 60px;
+    font-size: 2.5rem;
+    left: 50px;
+    font-weight: bold;
+}
+
+main>div:nth-child(7) {
+    width: 100%;
+    background-color: black;
+    height: 100%;
+    margin-bottom: 50px;
+}
+
+main>div:nth-child(7)>div:nth-child(1) {
+    width: 1040px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+main>div:nth-child(7) p {
+    font-size: 2rem;
+    padding: 30px 0;
+}
+
+.stheater_wrap {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.stheater_wrap>ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 30px;
+    
+
+}
+
+.stheater_wrap>ul>li {
+    width: 23%;
+    height: 60px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #494949;
+    display: flex;
+    margin: 9px;
+}
+
+.stheater_wrap ul li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stheater_wrap ul li:hover {
+    background-color: #FFC400;
+    color:black;
+}
+
+
+.hovered {
+    color: black;
+}
+
+.hovered span {
+    color: black;
+}
+
+
+
+main>div:nth-child(8) {
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+main>div:nth-child(8)>div:nth-child(1) {
+    width: 1040px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+main>div:nth-child(8) p {
+    font-size: 2rem;
+    padding: 30px 0;
+}
+
+.top3-wrap {
+    display: flex;
+    width: 100%;
+}
+
+.top3-wrap div {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.top3-wrap div img {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+
+}
+
+.top3-wrap div button {
+    margin: 20px auto;
+    border-radius: 10px;
+    display: flex;
+    border:none;
+    outline: none;
+
+}
+
+.top3-wrap div button a {
+    color:white;
+    background-color: #494949;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 55px;
+    margin:0 auto;
+    width:210px;
+    text-align: center;
+    cursor:pointer;
+    font-weight: bold;
+}
+
+.top3-wrap div button a:hover{
+    background-color: #FFC400;
+    color:black;
+}
+
+.navBar:nth-child(2)>a:nth-child(1) {
+    color: rgb(255, 196, 0);
+}
+
+
+
+.topBg_imgarea {
+    position: relative;
+    background-image: url('/movie/resources/images/teater_special/img-theater-db-view05.png');
+    background-repeat: no-repeat;
+    background-position: center;
+
+  }
+
+  .topBg_imgarea::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, rgba(0,0,0,2) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,2) 100%), 
+    url('/movie/resources/images/teater_special/img-theater-db-view05.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+  }
+
+  .cinename{
+    margin-left:10px;
+  }

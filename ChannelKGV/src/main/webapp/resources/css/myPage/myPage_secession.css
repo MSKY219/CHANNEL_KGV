@@ -1,0 +1,162 @@
+main>section {
+    width: 1040px;
+    margin: 0 auto;
+    padding: 50px 30px 0 30px;
+    display: flex;
+    justify-content: space-between !important;
+    flex-wrap: wrap;
+}
+
+h2 {
+    font-size: 1.8rem;
+    padding: 0 0 30px 10px;
+    border-bottom: 3px solid rgb(255, 196, 0);
+    margin-bottom: 0;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: "GmarketSansMedium";
+    /* color: rgb(222, 222, 222); */
+    list-style-type: none;
+}
+
+
+/* form속 div class주던가 해서 정렬해야함 생각 좀 해보기 왜냐하면 페이지마다 보여지는 형식이 다름
+그러니 어떻게 넣을건지 생각 좀 더 해보자!! */
+.myPage-form {
+    display: flex;
+    flex-direction: column;
+}
+/* 공통 끝 */
+/* ====================================================================================== */
+/* 정보 수정, 비밀번호 변경, 회원 탈퇴 등에 사용된 info변경할때 사용하는 frame */
+.myPage-info-frame {
+    border-bottom: 0.1px solid rgb(73, 73, 73);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.myPage-info-frame:hover {
+    background-color: rgb(73, 73, 73);
+}
+
+.myPage-info-frame:hover input::placeholder{
+    color: rgb(32, 32, 32);
+}
+
+.myPage-info-frame label {
+    width: 25%;
+    text-align: right;
+    padding-right: 30px;
+    font-weight: bold;
+}
+
+/* .myPage-info-frame input {
+    width: 70%;
+} */
+
+.myPage-info-frame input,
+select {
+    width: 50%;
+    height: 60px;
+    /* background-color: rgb(73,73,73); */
+    background-color: transparent;
+    border: none;
+    padding-left: 10px;
+}
+
+/* .myPage-info-frame input:hover {
+    background-color: rgb(32,32,32);
+} */
+
+.myPage-info-frame input::placeholder {
+    color: rgb(73, 73, 73);
+}
+
+.agree-form {
+    border-bottom: 0.1px solid rgb(73, 73, 73);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.agree-form:hover {
+    background-color: rgb(73, 73, 73);
+}
+
+.agree-form:hover .secession-terms {
+    border-width : 3px 0 3px 3px;
+    border-style: solid;
+    border-color:  rgb(32, 32, 32);
+}
+
+.agree-form:hover .secession-terms::-webkit-scrollbar {
+    background-color: rgb(32, 32, 32);
+}
+
+.agree-form:hover .secession-terms::-webkit-scrollbar-thumb {
+    background-color: rgb(73, 73, 73);
+}
+
+/* 탈퇴 session 템플릿 */
+.agree-title{
+    height: 40px;
+    text-align: right;
+    font-weight: bold;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.secession-terms {
+    width : 500px;
+    height: 300px;
+    border-width : 3px 0 3px 3px;
+    border-style: solid;
+    border-color: rgb(73, 73, 73);
+    font-size : 0.8rem;
+    margin: 5px 0 5px 0;
+    /* 내용이 지정한 사이즈를 초과한 경우에 대한 속성 */
+    white-space: pre;
+    overflow : auto; /* 초과한 방향의 스크롤을 자동 생성 */
+}
+
+.secession-terms::-webkit-scrollbar {
+    background-color: rgb(73, 73, 73);
+}
+
+.secession-terms::-webkit-scrollbar-thumb {
+    background-color: rgb(32, 32, 32);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+
+.update-btn-area {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-update-btn {
+    width: 500px;
+    height: 40px;
+    background-color: #494949;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    color: #FFff;
+    border: none;
+    margin-top: 30px;
+}
+
+.info-update-btn:hover {
+    background-color: #FCFCFC;
+    color: #191919;
+}

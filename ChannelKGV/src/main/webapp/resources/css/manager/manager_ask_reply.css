@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "GmarketSansMedium";
+    /* color: rgb(222, 222, 222); */
+    list-style-type: none;
+}
+
+.main_Wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+}
+
+/* 우측 영역 */
+.right_items_Container {
+    display: flex;
+    flex-direction: column;
+    flex: 8.5;
+    height: 100%;
+}
+
+/* 내부 아이템 영역 */
+#items_Wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.set_Edge {
+    flex: 1;
+    display: flex;
+    margin: 20px 18px;
+    background-color: white;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.table_Wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 30px;
+
+}
+
+.table_Title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    border-bottom: 2px solid black;
+    justify-content: space-between;
+}
+
+.table_Title span {
+    margin-left: 30px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.search_Box {
+    display: flex;
+    width: 350px;
+    height: 25px;
+    margin-bottom: 15px;
+}
+
+.search_Box input {
+    flex: 9;
+}
+
+.search_Box button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+}
+
+.table_main tr {
+    width: 100%;
+    height: 6.5vh;
+    text-align: center;
+}
+
+.table_main th,
+.table_main td {
+    vertical-align: middle;
+}
+
+.table_main th {
+    font-weight: bold;
+}
+
+.table_main td {
+    font-size: 0.8rem;
+}
+
+.table_main tr:nth-child(2n) {
+    background-color: #dbdbdb;
+}
+
+.page_Nation {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page_Nation div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+.page_Nation div:hover {
+    background-color: #eee;
+}
+
+.selected_Cp {
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #ddd;
+}
+
+/* --------------------1:1 문의 */
+.manager_Answer {
+    width: 50%;
+    height: 100%;
+    /* border: 1px solid red; */
+
+    display: flex;
+    flex-direction: column;
+
+    padding-right: 9px;
+}
+
+.manager_Answer>textarea {
+    width: 100%;
+    height: 93%;
+    resize: none;
+    margin-bottom: 2%;
+}
+
+.manager_Answer>button {
+    width: 100%;
+    height: 5%;
+
+    cursor: pointer;
+}
+
+
+.user_Question {
+    width: 50%;
+    height: 100%;
+    /* border: 1px solid blue; */
+
+    padding-left: 9px;
+
+}
+
+.user_Question>textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+}

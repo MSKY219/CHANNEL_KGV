@@ -1,0 +1,218 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "GmarketSansMedium";
+    /* color: rgb(222, 222, 222); */
+    list-style-type: none;
+}
+
+.main_Wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+}
+
+/* 우측 영역 */
+.right_items_Container {
+    display: flex;
+    flex-direction: column;
+    flex: 8.5;
+    height: 100%;
+}
+
+/* 내부 아이템 영역 */
+#items_Wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.set_Edge {
+    flex: 1;
+    display: flex;
+    margin: 20px 18px;
+    background-color: white;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.table_Wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 30px;
+
+}
+
+.table_Title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    border-bottom: 2px solid black;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.table_Title span {
+    margin-left: 30px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.table_main {
+    flex: 9;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 6.5vh;
+}
+
+.enter_Title {
+    display: flex;
+    align-items: center;
+    /* height: 60px;
+    border-bottom: 1px solid black; */
+    padding-bottom: 10px;
+}
+
+.enter_Title input {
+    width: 100%;
+    border: none;
+    font-size: 2rem;
+    height: 50px;
+}
+
+.table_bottom {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table_bottom button {
+    color: white;
+}
+
+.table_bottom a {
+    color: white;
+    text-decoration: none;
+}
+
+.table_bottom button:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.table_bottom a:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.bottom_Submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #333333;
+}
+
+.bottom_Cancel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    margin-left: 30px;
+    cursor: pointer;
+    background-color: #333333;
+}
+
+.calendarArea {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+/* 이벤트 시작일 */
+#play_start {
+    display: flex;
+    align-items: center;
+    width: 350px;
+    height: 50px;
+}
+
+#play_start span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin-right: 30px;
+}
+
+#play_start>div {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.start_date {
+    height: 50px;
+}
+
+/* 이벤트 종료일 */
+#play_end {
+    display: flex;
+    align-items: center;
+    width: 350px;
+    height: 50px;
+}
+
+#play_end span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin-right: 30px;
+}
+
+#play_end>div {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.end_date {
+    height: 50px;
+}
+
+/* input Date 선택 시 나오는 달력 아이콘 숨기기 */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.movie_image1 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    border: 2px solid #ddd;
+    vertical-align: middle;
+}
+
+.movie_image1:hover {
+    border: 2px solid black;
+}

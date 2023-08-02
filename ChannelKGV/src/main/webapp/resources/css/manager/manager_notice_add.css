@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "GmarketSansMedium";
+    /* color: rgb(222, 222, 222); */
+    list-style-type: none;
+}
+
+.main_Wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+}
+
+/* 우측 영역 */
+.right_items_Container {
+    display: flex;
+    flex-direction: column;
+    flex: 8.5;
+    height: 100%;
+}
+
+/* 내부 아이템 영역 */
+#items_Wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.set_Edge {
+    flex: 1;
+    display: flex;
+    margin: 20px 18px;
+    background-color: white;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.table_Wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 30px;
+
+}
+
+.table_Title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    border-bottom: 2px solid black;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.table_Title span {
+    margin-left: 30px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.table_main {
+    flex: 9;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.enter_Title {
+    display: flex;
+    height: 60px;
+}
+
+.enter_Title input {
+    width: 100%;
+    border: none;
+    font-size: 2rem;
+    height: 50px;
+}
+
+.table_bottom {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table_bottom button {
+    color: white;
+}
+
+.table_bottom button:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.bottom_Submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #333333;
+}
+
+.bottom_Cancel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    margin-left: 30px;
+    cursor: pointer;
+    background-color: #333333;
+    color: white;
+    text-decoration: none;
+}
+
+.bottom_Cancel:hover {
+    background-color: #FAE300;
+    color: black;
+    text-decoration: none;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="enterMapper">
+
+	<resultMap type="de" id="de_rm">
+	
+		<id property="deNo" column="DE_NO"/>
+		
+		<result property="deDate" 		column="DE_DATE"/>
+		<result property="deIp" 		column="DE_IP"/>
+	
+	</resultMap>
+	
+	
+	
+	  	<!-- 접속 수 확인 -->
+  	<insert id="inputEnter" parameterType="de">
+  		INSERT INTO DAILY_ENTER
+  		VALUES
+  		(
+  			SEQ_DE_NO.NEXTVAL
+  			, DEFAULT
+  			, #{deIp}
+  		)
+  	</insert>
+
+</mapper>

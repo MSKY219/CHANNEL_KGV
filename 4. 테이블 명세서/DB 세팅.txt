@@ -1,0 +1,450 @@
+-- 계정 생성
+
+ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
+
+CREATE USER CHANNEL_KGV IDENTIFIED BY 1234;
+
+GRANT CONNECT, RESOURCE TO CHANNEL_KGV;
+
+ALTER USER CHANNEL_KGV DEFAULT TAbLESPACE SYSTEM QUOTA UNLIMITED ON SYSTEM;
+
+DROP USER CHANNEL_KGV CASCADE;
+
+SELECT * FROM ALL_USERS;
+
+-- ===========================================================================
+-- ===========================================================================
+
+-- 유저 테이블
+CREATE TABLE "USERS" 
+   (
+   	"USER_NO" NUMBER(10) NOT NULL, 
+	"USER_EMAIL" VARCHAR2(100) NOT NULL, 
+	"USER_PW" VARCHAR2(500), 
+	"USER_NAME" VARCHAR2(30), 
+	"USER_NICKNAME" VARCHAR2(50) NOT NULL, 
+	"USER_TEL" VARCHAR2(11), 
+	"USER_ADDR" VARCHAR2(500), 
+	"USER_BIRTH" VARCHAR2(8), 
+	"USER_GENDER" CHAR(1), 
+	"USER_REGDATE" DATE DEFAULT SYSDATE NOT NULL, 
+	"USER_ST" CHAR(1) DEFAULT 'Y' NOT NULL, 
+	"USER_IMG" VARCHAR2(500), 
+	"USER_POINT" NUMBER(11) DEFAULT 0, 
+	"USER_SNS" CHAR(1) DEFAULT 'N', 
+	"USER_DELETE" DATE DEFAULT SYSDATE, 
+	"USER_MANAGERST" CHAR(1) DEFAULT 'N' NOT NULL, 
+	"USER_BLOCK" CHAR(1) DEFAULT 'N' NOT NULL
+   )
+   
+   ALTER TABLE "USER" ADD CONSTRAINT "PK_USER" PRIMARY KEY ("USER_NO");
+   
+-- ===========================================================================
+-- ===========================================================================
+  
+-- 타임테이블
+  CREATE TABLE "TIME_TABLE" 
+   (
+  	"TT_NO" NUMBER(4), 
+	"TT_TIME" VARCHAR2(11)
+   )
+   
+   ALTER TABLE "TIME_TABLE" ADD CONSTRAINT "PK_TT" PRIMARY KEY ("TT_NO");
+   
+-- ===========================================================================
+-- ===========================================================================
+  
+-- 스토어 주문 테이블
+  CREATE TABLE "STORE_ORDER" 
+   (
+   	"S_ORDER_NO" NUMBER(4) NOT NULL, 
+	"ORDER_DETAIL_NO" VARCHAR2(100), 
+	"ORDER_COUNT" NUMBER(10), 
+	"ORDER_PRICE" NUMBER(10), 
+	"ORDER_DATE" DATE DEFAULT SYSDATE, 
+	"ORDER_ST" CHAR(1) DEFAULT 'Y', 
+	"ORDER_DELETE" DATE, 
+	"USER_EMAIL" VARCHAR2(100), 
+	"USER_NAME" VARCHAR2(30), 
+	"STORE_NAME" VARCHAR2(100), 
+	"STORE_NO" NUMBER(4),
+	"IMP_UID" VARCHAR2(50)
+   )
+
+    ALTER TABLE "STORE_ORDER" ADD CONSTRAINT "PK_SO" PRIMARY KEY ("S_ORDER_NO");
+   
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 스토어 쿠폰 테이블
+   CREATE TABLE "STORE_COUPON" 
+   (
+   	"S_COUPON_NO" NUMBER(10) NOT NULL, 
+	"S_ORDER_NO" NUMBER(10), 
+	"COUPON_DETAIL_NO" VARCHAR2(20), 
+	"COUPON_ST" CHAR(1) DEFAULT 'Y'
+   )
+   
+   ALTER TABLE "STORE_COUPON" ADD CONSTRAINT "PK_SC" PRIMARY KEY ("S_COUPON_NO");
+
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 스토어 테이블
+  CREATE TABLE "STORE" 
+   (
+   	"STORE_NO" NUMBER(4), 
+	"STORE_CATEGORY" VARCHAR2(20), 
+	"STORE_NAME" VARCHAR2(100), 
+	"STORE_PRICE" NUMBER(10), 
+	"STORE_IMAGE" VARCHAR2(500), 
+	"STORE_DESC" VARCHAR2(100), 
+	"STORE_STOCK" NUMBER(10), 
+	"STORE_IMAGE_BIG" VARCHAR2(500)
+   )
+   
+   ALTER TABLE "STORE" ADD CONSTRAINT "PK_STORE" PRIMARY KEY ("STORE_NO");
+ 
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 스크린 테이블
+  CREATE TABLE "SCREEN" 
+   (
+   	"SCREEN_NO" NUMBER(10), 
+	"CINEMA_NAME" VARCHAR2(30), 
+	"SCREEN_NAME" NUMBER, 
+	"SCREEN_STYLE" VARCHAR2(50) DEFAULT '일반관', 
+	"SCREEN_SEAT" NUMBER, 
+	"SCREEN_ROW" NUMBER DEFAULT 0, 
+	"SCREEN_COL" NUMBER DEFAULT 0, 
+	"SCREEN_AISLE" VARCHAR2(200) DEFAULT '[]', 
+	"SCREEN_SPACE" VARCHAR2(2000) DEFAULT '{}', 
+	"SCREEN_SWEET" VARCHAR2(200) DEFAULT '[]', 
+	"SCREEN_IMPAIRED" VARCHAR2(200) DEFAULT '[]'
+   )
+      
+   ALTER TABLE "SCREEN" ADD CONSTRAINT "PK_SCREEN" PRIMARY KEY ("SCREEN_NO");
+    
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 리뷰 테이블
+  CREATE TABLE "REVIEW" 
+   (
+   	"REV_NO" NUMBER(10), 
+	"MOVIE_NO" NUMBER(10), 
+	"USER_NO" NUMBER(10), 
+	"REV_CONTENT" VARCHAR2(1000), 
+	"REV_ST" CHAR(1) DEFAULT 'N', 
+	"REV_LIKE" NUMBER(10), 
+	"REV_DATE" DATE DEFAULT SYSDATE, 
+	"REV_FIXED" DATE DEFAULT SYSDATE, 
+	"USER_NICKNAME" VARCHAR2(255)
+   )
+   
+   ALTER TABLE "REVIEW" ADD CONSTRAINT "PK_REVIEW" PRIMARY KEY ("REV_NO");
+   
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 자주찾는 질문 테이블
+  CREATE TABLE "QUEST_TBL" 
+   (
+   	"QUEST_NO" NUMBER(4), 
+	"QUEST_TYPE" VARCHAR2(100), 
+	"QUEST_TITLE" VARCHAR2(2000), 
+	"QUEST_CONTENT" VARCHAR2(2000), 
+	"QUEST_ST" CHAR(1) DEFAULT 'N', 
+	"QUEST_TN" NUMBER(1)
+	)
+	   
+   ALTER TABLE "QUEST_TBL" ADD CONSTRAINT "PK_QUEST" PRIMARY KEY ("QUEST_NO");
+      
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 가격 테이블
+  CREATE TABLE "PRICE" 
+   (
+   	"PRICE_NO" NUMBER(4),
+	"SCREEN_STYLE" VARCHAR2(100),
+	"PRICE_DAY" VARCHAR2(30),
+	"PRICE_TIME" VARCHAR2(30),
+	"PRICE_TEEN" VARCHAR2(9),
+	"PRICE_NORMAL" VARCHAR2(9),
+	"PRICE_ELDER" VARCHAR2(9),
+	"PRICE_SPECIAL" VARCHAR2(9),
+	"PRICE_COUPLE" VARCHAR2(9)
+   )
+   
+   ALTER TABLE "PRICE" ADD CONSTRAINT "PK_PRICE" PRIMARY KEY ("PRICE_NO");
+        
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 상영등록 테이블
+  CREATE TABLE "PLAY" 
+   (
+   	"PLAY_NO" NUMBER(10) NOT NULL,
+	"MOVIE_NO" NUMBER(10) NOT NULL,
+	"SCREEN_NO" NUMBER(10) NOT NULL,
+	"PLAY_START" DATE NOT NULL,
+	"PLAY_END" DATE NOT NULL,
+	"PLAY_REGDATE" DATE DEFAULT SYSDATE NOT NULL, 
+	"PLAY_UPLOADER" VARCHAR2(50),
+	"PLAY_BOOKCOUNT" NUMBER DEFAULT 0 NOT NULL, 
+	"PLAY_BOOKSEAT" VARCHAR2(3000) DEFAULT '[]' NOT NULL,
+	"PLAY_ST" VARCHAR2(3) DEFAULT 'N' NOT NULL
+   )
+   
+   ALTER TABLE "PLAY" ADD CONSTRAINT "PK_PLAY" PRIMARY KEY ("PLAY_NO");
+           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 주문 결제 테이블
+  CREATE TABLE "PAY_ORDER" 
+   (
+   	"RESERVE_NO" NUMBER, 
+	"BOOK_NO" NUMBER NOT NULL,
+	"RESERVE_CODE_NO" VARCHAR2(30) NOT NULL,
+	"RESERVE_ST" CHAR(1) DEFAULT 'Y' NOT NULL
+	)
+	
+	ALTER TABLE "PAY_ORDER" ADD CONSTRAINT "PK_PO" PRIMARY KEY ("RESERVE_CODE_NO");
+	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 공지사항 테이블
+CREATE TABLE "NOTICE" 
+   (
+   	"NOTICE_NO" NUMBER(4),
+	"NOTICE_TITLE" VARCHAR2(100),
+	"NOTICE_CONTENT" VARCHAR2(3000),
+	"NOTICE_REGDATE" DATE DEFAULT SYSDATE,
+	"NOTICE_UPLOADER" VARCHAR2(100),
+	"NOTICE_STATUS" CHAR(1) DEFAULT 'Y',
+	"NOTICE_VIEW" NUMBER(4) DEFAULT 0
+   )
+   
+   ALTER TABLE "NOTICE" ADD CONSTRAINT "PK_NOTICE" PRIMARY KEY ("NOTICE_NO");
+  	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 1 : 1 문의 테이블
+  CREATE TABLE "MTM_TBL" 
+   (
+   	"MTM_NO" NUMBER(38),
+	"MTM_TITLE" VARCHAR2(255),
+	"MTM_CONTENT" VARCHAR2(3000),
+	"MTM_IMAGE" VARCHAR2(3000),
+	"USER_NO" NUMBER(38),
+	"MTM_TYPE" VARCHAR2(3000),
+	"MTM_ST" VARCHAR2(3) DEFAULT 'N',
+	"MTM_COUNT" NUMBER(38) DEFAULT 0,
+	"MTM_REGDATE" DATE DEFAULT SYSDATE,
+	"MTM_WRITER" VARCHAR2(255),
+	"MTM_REPWRITER" VARCHAR2(3000),
+	"MTM_REPST" CHAR(1) DEFAULT 'N',
+	"MTM_REPCONTENT" VARCHAR2(3000),
+	"MTM_REPDATE" DATE DEFAULT sysdate,
+	"MTM_PW" NUMBER(4) DEFAULT 0
+   )
+   
+   ALTER TABLE "MTM_TBL" ADD CONSTRAINT "PK_MTM" PRIMARY KEY ("MTM_NO");
+       	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 영화 등급 테이블
+  CREATE TABLE "MOVIE_GRADE" 
+   (
+   	"MG_NO" NUMBER(4), 
+	"MG_CONTENT" VARCHAR2(30)
+   )
+   
+   ALTER TABLE "MOVIE_GRADE" ADD CONSTRAINT "PK_MG" PRIMARY KEY ("MG_NO");
+          	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 영화 테이블
+  CREATE TABLE "MOVIE" 
+   (
+   	"MOVIE_NO" NUMBER(10),
+	"MOVIE_RUNTIME" VARCHAR2(50),
+	"MOVIE_TITLE" VARCHAR2(100),
+	"MOVIE_NATION" VARCHAR2(100),
+	"MG_CONTENT" VARCHAR2(200),
+	"MOVIE_CONTENT" VARCHAR2(3000),
+	"MOVIE_IMG1" VARCHAR2(3000),
+	"MOVIE_PLAYED" NUMBER(11) DEFAULT 0,
+	"MOVIE_WATCHED" NUMBER(11) DEFAULT 0,
+	"MOVIE_REGDATE" DATE DEFAULT SYSDATE, 
+	"MOVIE_UPLOADER" VARCHAR2(50),
+	"GENRE_NAME" VARCHAR2(1000),
+	"MOVIE_DIRECTOR" VARCHAR2(100),
+	"MOVIE_CAST" VARCHAR2(1000),
+	"MOVIE_OPEN" VARCHAR2(100),
+	"MOVIE_IMG2" VARCHAR2(3000),
+	"MOVIE_IMG3" VARCHAR2(3000),
+	"MOVIE_IMG4" VARCHAR2(3000),
+	"MOVIE_IMG5" VARCHAR2(3000),
+	"MOVIE_IMG6" VARCHAR2(3000),
+	"MOVIE_ST" CHAR(1) DEFAULT 'Y'
+   )
+   
+   ALTER TABLE "MOVIE" ADD CONSTRAINT "PK_MOVIE" PRIMARY KEY ("MOVIE_NO");
+                	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 분실물 테이블
+  CREATE TABLE "LOST_PACKAGE"
+   (
+   	"LOST_NO" NUMBER(4),
+	"USER_NO" NUMBER(10),
+	"LOST_TITLE" VARCHAR2(500),
+	"LOST_ITEM" VARCHAR2(20),
+	"LOST_LOCATION" VARCHAR2(500),
+	"LOST_DATE" VARCHAR2(30),
+	"LOST_FILE" VARCHAR2(3000),
+	"LOST_CONTENT" VARCHAR2(3000),
+	"LOST_WRITER" VARCHAR2(3000),
+	"LOST_VIEW" NUMBER DEFAULT 0,
+	"LOST_ST" CHAR(1) DEFAULT 'N',
+	"LOST_REPWRITER" VARCHAR2(3000),
+	"LOST_REPST" CHAR(1) DEFAULT 'N',
+	"LOST_REPCONTENT" VARCHAR2(3000),
+	"LOST_REPDATE" DATE DEFAULT SYSDATE,
+	"LOST_PW" NUMBER(4) DEFAULT 0
+   )
+   
+   ALTER TABLE "LOST_PACKAGE" ADD CONSTRAINT "PK_LP" PRIMARY KEY ("LOST_NO");
+                   	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 장르 테이블
+  CREATE TABLE "GENRE" 
+   (
+   	"GENRE_NO" NUMBER(10),
+	"GENRE_CODE" VARCHAR2(10),
+	"GENRE_NAME" VARCHAR2(50)
+   )
+   
+   ALTER TABLE "GENRE" ADD CONSTRAINT "PK_GENRE" PRIMARY KEY ("GENRE_NO");
+                     	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 이벤트 테이블
+  CREATE TABLE "EVENT" 
+   (
+   	"EVENT_NO" NUMBER(4),
+	"EVENT_TITLE" VARCHAR2(500),
+	"EVENT_CONTENT" VARCHAR2(3000),
+	"EVENT_START" VARCHAR2(30),
+	"EVENT_END" VARCHAR2(30),
+	"EVENT_STATUS" CHAR(1) DEFAULT 'Y',
+	"EVENT_REG" DATE DEFAULT SYSDATE,
+	"EVENT_IMG" VARCHAR2(3000)
+   )
+   
+  ALTER TABLE "EVENT" ADD CONSTRAINT "PK_EVENT" PRIMARY KEY ("EVENT_NO");
+                      	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 일일접속자 수 테이블
+ CREATE TABLE "DAILY_ENTER" 
+   (
+   	"DE_NO" NUMBER(10),
+	"DE_DATE" DATE DEFAULT SYSDATE,
+	"DE_IP" VARCHAR2(30)
+   )
+   
+   ALTER TABLE "DAILY_ENTER" ADD CONSTRAINT "PK_DE" PRIMARY KEY ("DE_NO");
+                         	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 극장 테이블
+  CREATE TABLE "CINEMA" 
+   (
+   	"CINEMA_NO" NUMBER(4),
+	"CINEMA_NAME" VARCHAR2(30),
+	"CINEMA_AREA" VARCHAR2(9),
+	"CINEMA_REGION" VARCHAR2(500),
+	"CINEMA_SCREEN" NUMBER
+   )
+   
+   ALTER TABLE "CINEMA" ADD CONSTRAINT "PK_CINEMA" PRIMARY KEY ("CINEMA_NO");
+                           	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 인증 테이블
+  CREATE TABLE "CERTIFICATION" 
+   (
+   	"EMAIL" VARCHAR2(50),
+	"C_NUMBER" CHAR(6),
+	"ISSUE_DT" DATE
+   )
+                       	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 예약 테이블
+   CREATE TABLE "BOOK" 
+   (
+   	"BOOK_NO" NUMBER NOT NULL, 
+	"PLAY_NO" NUMBER NOT NULL, 
+	"USER_NO" NUMBER NOT NULL, 
+	"MOVIE_NO" NUMBER NOT NULL, 
+	"BOOK_DT" DATE DEFAULT SYSDATE,
+	"BOOK_AGE" VARCHAR2(500),
+	"BOOK_SEAT" VARCHAR2(500),
+	"BOOK_PRICE" VARCHAR2(500),
+	"BOOK_ST" CHAR(1) DEFAULT 'N'
+   )
+   
+   ALTER TABLE "BOOK" ADD CONSTRAINT "PK_BOOK" PRIMARY KEY ("BOOK_NO");
+                          	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 혜택 테이블
+  CREATE TABLE "BENEFITS" 
+   (
+   	"BENEFITS_NO" NUMBER(4),
+	"BENEFITS_TITLE" VARCHAR2(500),
+	"BENEFITS_CONTENT" VARCHAR2(3000),
+	"BENEFITS_START" VARCHAR2(30),
+	"BENEFITS_END" VARCHAR2(30),
+	"BENEFITS_STATUS" CHAR(1) DEFAULT 'Y',
+	"BENEFITS_REG" DATE DEFAULT SYSDATE,
+	"BENEFITS_IMG" VARCHAR2(3000)
+   )
+   
+   ALTER TABLE "BENEFITS" ADD CONSTRAINT "PK_BENEFIT" PRIMARY KEY ("BENEFITS_NO");
+   
+                            	           
+-- ===========================================================================
+-- ===========================================================================
+
+ -- 배너 테이블
+  CREATE TABLE "BANNER" 
+   (
+   	"BANNER_NO" NUMBER(4),
+	"BANNER_TITLE" VARCHAR2(100),
+	"BANNER_REGDATE" DATE DEFAULT SYSDATE,
+	"BANNER_IMG" VARCHAR2(3000),
+	"BANNER_ST" CHAR(1) DEFAULT 'Y',
+	"BANNER_URL" VARCHAR2(3000)
+   )
+   
+   ALTER TABLE "BANNER" ADD CONSTRAINT "PK_BANNER" PRIMARY KEY ("BANNER_NO");

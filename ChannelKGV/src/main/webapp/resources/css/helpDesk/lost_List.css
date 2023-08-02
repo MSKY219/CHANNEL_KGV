@@ -1,0 +1,291 @@
+/* 전체 틀 잡아주는 css */
+main>section {
+    width: 1040px;
+    margin: 0 auto;
+    padding: 50px 30px 70px 30px;
+    display: flex;
+    justify-content: space-between !important;
+    flex-wrap: wrap;
+}
+
+.search-area form{
+    display: flex;
+    justify-content: right;
+    width: 60%;
+}
+
+#lostArea {
+    background-color: #191919;
+
+    color: white;
+    margin-right:5px;
+    border:none;
+    outline:none;
+    border-radius: 5px;
+}
+
+#lostName {
+    background-color: #191919;
+
+    color:white;
+    margin-right:5px;
+    border:none;
+    outline:none;
+    border-radius: 5px;
+}
+
+.search-area button{
+    background-color: #191919;
+
+    color:white;
+    height:100%;
+    outline: none;
+    border:none;
+    padding:0 10px;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.search-area input{
+    background-color: #191919;
+
+    color:white;
+    border:none;
+    outline:none;
+    padding-left:10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.aslide-list>li:nth-child(5)>a {
+    background-color: #FFC400;
+}
+
+.aslide-list>li:nth-child(5)>a {
+    color: black;
+}
+
+.notice-wraaper>div:nth-child(2) {
+    width: 82%;
+}
+
+/* 여기까지  왼쪽 ui관련 재활용 계속해야합니당.*/
+
+.notice-header {
+    border-bottom: 20px;
+    border-bottom: 2px solid rgb(255, 196, 0);
+    padding: 0 0 20px 10px;
+}
+
+.notice-header>p {
+    font-size: 0.8rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.search-area {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    padding: 25px 0;
+}
+
+.search-area>p {
+    line-height: 28px;
+    padding-left:10px;
+}
+
+.search-area>p>span {
+    padding: 0 5px;
+}
+
+.search-area>div {
+    width: 40%;
+    height: 100%;
+    display: flex;
+
+    padding: 0 10px;
+
+}
+
+.search-area>div>input {
+    width: 70%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.search-area>div>button {
+    width: 30%;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.table-wrap {
+	width: 784px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead * {
+	padding: 10px;
+	background-color: rgb(52,52,52);;
+}
+
+thead th:nth-child(1) {
+	width: 15%;
+	height: 50px;
+}
+
+thead th:nth-child(2) {
+	width: 65%;
+}
+
+thead th:nth-child(3) {
+	width: 15%;
+}
+
+thead th:nth-child(4) {
+	width: 15%;
+}
+
+tbody {
+	text-align: center;
+}
+
+.row * {
+	height: 50px;
+}
+
+.row td:nth-child(2) {
+	text-align: left;
+	max-width: 450px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	padding: 10px
+}
+
+.row td:nth-child(2)>a:hover {
+	text-decoration: underline;
+	color: rgb(251, 251, 251);
+}
+
+
+.page_Nation {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;    padding-top:30px;
+  }
+
+  .page_Nation div{
+    width:30px; height:30px;
+    border:1px solid rgba(73, 73, 73, 0.4);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .page_Nation div a {
+    width:100%;
+    height:100%;
+    line-height: 28px;
+  }
+  
+  .block {
+    display: block;
+  }
+  
+  .none {
+    display: none;
+  }
+
+
+  .table-wrap>div:nth-child(2) {
+	margin-top: 20px;
+	display: flex;
+	justify-content: right;
+	right: 0;
+}
+
+.table-wrap>div:nth-child(2)>a {
+	width: 105px;
+	height: 41px;
+	background-color: rgb(49, 49, 49);
+	color:white;
+	outline: none;
+	border: none;
+	line-height:39px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.table-wrap>div:nth-child(2)>a:hover {
+	background-color: rgb(255, 196, 0);
+	color: black;
+	cursor: pointer;
+}
+
+.qlrhdro {
+	color:red;
+}
+
+.replyComplete{
+	color:rgb(255, 196, 0);
+}
+
+
+.label_box{
+	height:60px;
+}
+
+#checkbox1{
+	width:30px;
+	height:30px;
+}
+
+.inner-label-box {
+	display:flex;
+	align-items:center;
+}
+
+
+
+#openStatus{
+	padding-left:5px;
+	top:0;
+	color:lightgray;
+	font-size:13px;
+}
+
+
+.row:nth-child(even) {
+    background-color: rgb(52,52,52);
+}
+
+.selected_Cp {
+    color: rgb(255, 196, 0);
+}
+
+
+.highlight{
+    background-color:rgba(255, 196, 0.3);
+    color:black;
+  }

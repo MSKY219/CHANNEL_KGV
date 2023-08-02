@@ -1,0 +1,602 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "GmarketSansMedium";
+    /* color: rgb(222, 222, 222); */
+    list-style-type: none;
+}
+
+.main_Wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+}
+
+/* 우측 영역 */
+.right_items_Container {
+    display: flex;
+    flex-direction: column;
+    flex: 8.5;
+    height: 100%;
+}
+
+/* 내부 아이템 영역 */
+#items_Wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.set_Edge {
+    flex: 1;
+    display: flex;
+    margin: 20px 18px;
+    background-color: white;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.table_Wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 30px;
+
+}
+
+.table_Title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    border-bottom: 2px solid black;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.table_Title span {
+    margin-left: 30px;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.table_main {
+    flex: 9;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 6.5vh;
+}
+
+/* 상영 영화관 */
+#play_cinema_area {
+    display: flex;
+    width: 50vw;
+    margin-bottom: 50px;
+}
+
+#play_cinema_area span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin-right: 30px;
+}
+
+#play_cinema_area>div {
+    flex: 9;
+}
+
+.play_cinema_area_enter {
+    z-index: 6;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: 50px;
+    border-bottom: 2px solid #ddd;
+}
+
+.play_cinema_area_enter:hover {
+    border-bottom: 2px solid black;
+}
+
+.play_cinema_area_enter>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+}
+
+.play_cinema_area_enter div:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+
+.deleteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 0.8rem;
+}
+
+.play_cinema_area_slide {
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    z-index: 6;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 250px;
+    overflow-y: scroll;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.play_cinema_area_slide div {
+    padding: 10px 20px;
+}
+
+.play_cinema_area_slide div:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+/* 상영 영화관 */
+#play_cinema {
+    display: flex;
+    width: 50vw;
+    margin-bottom: 50px;
+}
+
+#play_cinema span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin-right: 30px;
+}
+
+#play_cinema>div {
+    flex: 9;
+}
+
+.cinema_Items {
+    display: none;
+}
+
+.play_cinema_enter {
+    z-index: 5;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: 50px;
+    border-bottom: 2px solid #ddd;
+}
+
+.play_cinema_enter:hover {
+    border-bottom: 2px solid black;
+}
+
+.play_cinema_enter>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+}
+
+.play_cinema_enter div:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+
+.deleteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 0.8rem;
+}
+
+.play_cinema_slide {
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 250px;
+    overflow-y: scroll;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.play_cinema_slide div {
+    padding: 10px 20px;
+}
+
+.play_cinema_slide div:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+/* 상영 스크린 */
+#play_screen {
+    display: flex;
+    width: 50vw;
+    margin-bottom: 50px;
+}
+
+#play_screen span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin-right: 30px;
+}
+
+#play_screen>div {
+    flex: 9;
+}
+
+.screen_Items {
+    display: none;
+}
+
+.play_screen_enter {
+    z-index: 4;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: 50px;
+    border-bottom: 2px solid #ddd;
+}
+
+.play_screen_enter:hover {
+    border-bottom: 2px solid black;
+}
+
+.play_screen_enter>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+}
+
+.play_screen_enter div:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+
+.deleteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 0.8rem;
+}
+
+.play_screen_slide {
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 250px;
+    overflow-y: scroll;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.play_screen_slide div {
+    padding: 10px 20px;
+}
+
+.play_screen_slide div:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+/* 상영 영화 */
+#play_movie {
+    display: flex;
+    width: 50vw;
+    margin-bottom: 50px;
+    height: 50px;
+}
+
+#play_movie span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin-right: 30px;
+}
+
+#play_movie>div {
+    flex: 9;
+}
+
+.movie_Items {
+    display: none;
+}
+
+.play_movie_enter {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: 50px;
+    border-bottom: 2px solid #ddd;
+}
+
+.play_movie_enter:hover {
+    border-bottom: 2px solid black;
+}
+
+.play_movie_enter>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+}
+
+.play_movie_enter div:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.play_movie_slide {
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 250px;
+    overflow-y: scroll;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.play_movie_slide div {
+    padding: 10px 20px;
+}
+
+.play_movie_slide div:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+/* 상영 시작일 */
+#play_start {
+    display: flex;
+    align-items: center;
+    width: 50vw;
+    margin-bottom: 50px;
+    height: 50px;
+}
+
+#play_start span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin-right: 30px;
+}
+
+#play_start>div {
+    flex: 9;
+}
+
+.start_date {
+    height: 50px;
+}
+
+/* 상영 종료일 */
+#play_end {
+    display: flex;
+    align-items: center;
+    width: 50vw;
+    margin-bottom: 50px;
+    height: 50px;
+}
+
+#play_end span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin-right: 30px;
+}
+
+#play_end>div {
+    flex: 9;
+}
+
+.end_date {
+    height: 50px;
+}
+
+/* input Date 선택 시 나오는 달력 아이콘 숨기기 */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+/* 상영 시간 */
+#play_time {
+    display: flex;
+    width: 50vw;
+    margin-bottom: 50px;
+    height: 50px;
+}
+
+#play_time span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 8px;
+    margin-right: 30px;
+}
+
+#play_time>div {
+    flex: 9;
+}
+
+.time_Items {
+    display: none;
+}
+
+.play_time_enter {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: 50px;
+    border-bottom: 2px solid #ddd;
+}
+
+.play_time_enter:hover {
+    border-bottom: 2px solid black;
+}
+
+.added {
+    width: auto;
+    height: 30px;
+}
+
+.play_time_enter>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+}
+
+.play_time_enter div:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.play_time_slide {
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 250px;
+    overflow-y: scroll;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.play_time_slide div {
+    padding: 10px 20px;
+}
+
+.play_time_slide div:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+
+/* 저장 및 취소 버튼 */
+.table_bottom {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table_bottom button {
+    color: white;
+}
+
+.table_bottom button:hover {
+    background-color: #FAE300;
+    color: black;
+}
+
+.bottom_Submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #333333;
+}
+
+.bottom_Cancel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    margin-left: 30px;
+    cursor: pointer;
+    background-color: #333333;
+}
+
+.relative {
+    position: relative;
+}

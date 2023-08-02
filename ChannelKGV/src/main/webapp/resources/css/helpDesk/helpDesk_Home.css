@@ -1,0 +1,381 @@
+main>section {
+    width: 1040px;
+    margin: 0 auto;
+    padding: 50px 30px 0 30px;
+    display: flex;
+    justify-content: space-between !important;
+    flex-wrap: wrap;
+}
+
+
+.notice-wraaper>div:nth-child(2) {
+    width: 82%;
+}
+
+
+.aslide-list>li:nth-child(1)>a {
+    background-color: #FFC400;
+}
+
+.aslide-list>li:nth-child(1)>a {
+    color: black;
+}
+
+h2 {
+    font-size: 1.8rem;
+    padding: 0 0 30px 10px;
+    border-bottom: 3px solid rgb(255, 196, 0);
+    margin-bottom: 50px;
+}
+
+/* 검색 회색영역 */
+.cont-search-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background-color: rgb(72 72 72);
+    border-radius: 10px;
+}
+
+/* 빠른검색 */
+.cont-search-wrap>span {
+    padding-right: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.cont-search-wrap form {
+    width: 60%;
+    display: flex;
+    height: 36px;
+    border-radius: 10px;
+}
+
+.cont-search-wrap form>input {
+    width: 90%;
+    border: none;
+    background-color: rgb(32, 32, 32);
+    padding-left: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border:none;
+    outline: none;
+}
+
+.cont-search-wrap form>button {
+    width: 10%;
+    border: none;
+    outline: none;
+    background-color:  rgb(32, 32, 32);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.cont-search-wrap form>button>img {
+    width: 24px;
+    height: 24px;
+}
+
+.new-wrap {
+    width: 100%;
+    display: flex;
+    padding: 50px 0;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.new-wrap>div {
+    width: 32%;
+    display: flex;
+    height: 170px;
+    flex-direction: column;
+    margin-left: 2px;
+    margin-bottom: 10px;
+    ;
+}
+
+.new-wrap>div>a:nth-child(1) {
+    height: 60%;
+    background-color: rgb(255, 196, 0);
+    border: none;
+    margin-left: 15px;
+    border-radius: 10px;
+    ;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.new-wrap>div>a:nth-child(1)>img {
+    width: 84px;
+    height: 84px;
+
+}
+
+.new-wrap>div:first-child>a:nth-child(1)>img {
+    padding: 5px;
+}
+
+.new-wrap>div:last-child>a:nth-child(1)>img {
+    width: 84px;
+    height: 74px;
+    padding: 10px 5px;
+
+}
+
+.new-wrap>div>a:nth-child(2) {
+    height: 40%;
+    margin-left: 17px;
+}
+
+.new-wrap>div>a:nth-child(2)>p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 3px 0;
+}
+ 
+.new-wrap>div>a:nth-child(2)>span {
+    font-size: 0.9rem;
+    padding: 3px 0;
+    color:#FCFCFC;
+}
+
+/* ...................... 뻨킹 테이블 ㅅㅂ */
+.table-wrap {
+    width: 100%;
+    height: 210px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-wrap div {
+    width: 48%;
+    display: felx;
+    flex-direction: column;
+}
+
+/* 테이블 제목 css */
+.notice_tbl_wrap p,
+.question_tbl_wrap p {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(255, 196, 0);
+}
+
+
+
+
+tbody{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_tbl_wrap p>span,
+.notice_tbl_wrap p>span {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.question_tbl_wrap p>a,
+.notice_tbl_wrap p>a {
+    padding-top: 7px;
+}
+.question_tbl_wrap p>a>span,
+.notice_tbl_wrap p>a>span {
+    font-size: 0.9rem;
+}
+.question_tbl_wrap p>a>span:hover,
+.notice_tbl_wrap p>a>span:hover {
+    color:#ffc400 !important;
+    text-decoration: underline;
+}
+
+/* 테이블 속성 */
+.notice_tbl,
+.question_tbl {
+    padding-top: 15px;
+        display: flex;
+}
+
+table{
+    max-width: 376px;
+}
+
+table *{
+    font-size: 0.9rem;
+}
+
+.row {
+    padding: 4px 0 0 0;
+    display: flex;
+}
+
+.row td,
+.row th
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.row td:nth-child(1) {
+    width: 10%;
+    font-size: 0.9rem;
+    color: #a3a3a3;
+    text-align:center;
+}
+.row th:nth-child(2) {
+    width: 70%;
+    text-align: left;
+    padding-left: 10px;
+    overflow: hidden;
+    font-weight: 600;
+}
+.row td:nth-child(3) {
+    width: 20%;
+    text-align: right;
+    color: #a3a3a3;
+    padding-left:5px;
+}
+.row th >a:hover{
+    color:rgb(255, 196, 0);
+    text-decoration: underline;
+}
+
+
+.button {
+    width: 100%;
+    height: 40px;
+    background-color: #494949;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    color: #fcfcfc !important;
+    border: none;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button:hover {
+    background-color: #ffc400 ;
+    color: #000000 !important;
+}
+
+
+
+.event-wrap {
+    flex:1;
+    margin-top: 30px;
+}
+
+.event-title p{
+	line-height:38px;
+}
+
+.event-wrap>div:nth-child(1) {
+    width: 784px;
+    overflow: hidden;
+
+}
+
+.event-title {
+    height: 60px;
+    display: flex;
+    width:784px;
+    justify-content: space-between;
+}
+
+.event-title>a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+.event-title>a:hover {
+    color: #FCFCFC;
+}
+
+.event-title>div {
+    width: 145px;
+    height: 60px;
+    display: flex;
+}
+
+
+.swiper-container {
+    position: relative;
+    display: flex;
+}
+
+
+.swiper-slide {
+    padding: 0 20px;
+    justify-content: space-around;
+}
+
+
+.swiper-slide>a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.swiper-slide>a>img {
+    border-radius: 10px;
+    height: 220px;
+}
+
+
+
+.swiper-slide>a>strong {
+    font-size: 1.2rem;
+    padding: 5px;
+}
+
+
+
+.swiper-container>div:nth-child(2)::after,
+.swiper-container>div:nth-child(3)::after {
+    font-size: 1rem;
+    color: #FCFCFC;
+}
+
+.swiper-container>div:nth-child(2),
+.swiper-container>div:nth-child(3) {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    color: transparent;
+    background-color: #494949;
+    border-radius: 50%;
+    line-height: 42px;
+    opacity: 0.9;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    top: 110px;
+    z-index: 5;
+}
+
+.swiper-container>div:nth-child(2):hover,
+.swiper-container>div:nth-child(3):hover {
+    background-color: rgb(255, 196, 0);
+    
+}
+
+.swiper-container>div:nth-child(2) {
+    right: 0;
+}
+
+.swiper-container>div:nth-child(3) {
+    left: 0;
+
+}

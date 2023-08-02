@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="storeMapper">
+	
+	<resultMap type="store" id="store_rm">
+		
+		<id property="storeNo" column="STORE_NO"/>
+		<result property="storeCategory" 			column="STORE_CATEGORY"/>
+		<result property="storeName" 				column="STORE_NAME"/>
+		<result property="storePrice" 				column="STORE_PRICE"/>
+		<result property="storeImage" 				column="STORE_IMAGE"/>
+		<result property="storeDesc" 				column="STORE_DESC"/>
+		<result property="storeStock" 				column="STORE_STOCK"/>
+		<result property="storeImageBig" 			column="STORE_IMAGE_BIG"/>
+		
+	</resultMap>
+	
+	<resultMap type="storeOrder" id="storeOrder_rm">
+		
+		<id property="sorderNo" column="S_ORDER_NO"/>
+		<result property="orderDetailNo" 			column="ORDER_DETAIL_NO"/>
+		<result property="orderCount" 				column="ORDER_COUNT"/>
+		<result property="orderPrice" 				column="ORDER_PRICE"/>
+		<result property="orderDate" 				column="ORDER_DATE"/>
+		<result property="orderSt" 				column="ORDER_ST"/>
+		<result property="orderDelete" 				column="ORDER_DELETE"/>
+		<result property="userEmail" 				column="USER_EMAIL"/>
+		<result property="userName" 				column="USER_NAME"/>
+		<result property="storeName" 				column="STORE_NAME"/>
+		<result property="storeNo" 					column="STORE_NO"/>
+		<result property="imp_uid" 					column="IMP_UID"/>
+		
+	</resultMap>	
+	
+	
+	<resultMap type="storeCoupon" id="storeCoupon_rm">
+		
+		<id property="scouponNo" column="S_COUPON_NO"/>
+		<result property="sorderNo" 				column="S_ORDER_NO"/>
+		<result property="couponDetailNo" 			column="COUPON_DETAIL_NO"/>
+		<result property="couponSt" 			column="COUPON_ST"/>
+	</resultMap>	
+	
+	<resultMap type="js" id="js_rm">
+		<collection property="store" resultMap="store_rm" />
+		<collection property="storeOrder" resultMap="storeOrder_rm" />
+		<collection property="storeCoupon" resultMap="storeCoupon_rm" />
+	
+	</resultMap>
+	
+	
+	<!-- 상품 이름 중복 검사 -->
+  	<select id="NameDupCheck" parameterType="string" resultType="_int">
+  		SELECT COUNT(*) FROM STORE
+		WHERE STORE_NAME = #{storeName}
+		
+  	</select>
+  	
+  		<!-- 스토어 수정 중복검사 -->
+	<select id="NameDupChecks" parameterType="string" resultType="_int">
+  		SELECT COUNT(*) FROM STORE
+		WHERE STORE_NAME = #{storeName} AND STORE_NAME != #{originName}
+    
+    
+	</select>
+	
+	
+	<!-- 이벤트 등록 -->
+	<insert id="addStore" parameterType="store">
+	INSERT INTO STORE 
+    	VALUES (
+    		SEQ_STORE_NO.NEXTVAL
+        	, #{storeCategory}
+        	, #{storeName}
+        	, #{storePrice}
+        	, #{storeImage}
+        	, #{storeDesc}
+        	, #{storeStock}
+        	, #{storeImageBig}
+        	)
+	</insert>
+	
+	
+ 
+    <!-- 스토어 수 조회 -->
+    <select id="getStoreCount" resultType="_int">
+        SELECT COUNT(*) FROM STORE
+    </select>
+    
+    <!-- 스토어 오더 수 조회 -->
+      <select id="getStoreBuyCount" resultType="_int">
+       SELECT COUNT(*) FROM STORE_ORDER
+    </select>  
+    
+     <!-- 스토어 리스트 조회 -->
+    
+    <select id="getStoreList" resultMap="store_rm">
+        SELECT * FROM STORE
+        ORDER BY STORE_NO ASC
+    </select>
+    
+    <!-- 스토어 구매리스트 조회 -->
+     <select id="getStoreBuyList" resultMap="storeOrder_rm">
+        SELECT * FROM STORE_ORDER
+        ORDER BY S_ORDER_NO ASC
+    </select>
+    
+    
+   <!-- 스토어 디테일 값 불러오기 -->
+	<select id="getStoreDetail" resultMap="store_rm">
+		SELECT * FROM STORE
+		WHERE STORE_NO = #{storeNo}
+	</select>
+	
+	<!-- 스토어 수정 페이지 이동 후 값 불러오기 -->
+	<select id="getEditStoreList" resultMap="store_rm">
+		SELECT * FROM STORE
+		WHERE STORE_NO = #{storeNo}
+	</select>
+	
+	
+	
+	<!-- 스토어 수정 -->
+	<update id="StoreEdit" parameterType="store">
+		
+		
+		UPDATE STORE SET		
+        	STORE_CATEGORY = #{storeCategory}
+        	,STORE_NAME = #{storeName}
+        	,STORE_PRICE = #{storePrice}
+        	,STORE_IMAGE = #{storeImage}
+        	,STORE_DESC = #{storeDesc}
+        	,STORE_STOCK= #{storeStock}
+        	,STORE_IMAGE_BIG = #{storeImageBig}
+        WHERE STORE_NO = ${storeNo}
+        	
+	</update>
+
+
+	<!-- 결제 성공후 정보 저장 -->
+	<insert id="successPayment" parameterType="storeOrder" useGeneratedKeys="true" keyProperty="sorderNo">
+    <selectKey keyProperty="sorderNo" resultType="int" order="AFTER">
+        SELECT SEQ_S_ORDER_NO.CURRVAL FROM DUAL
+    </selectKey>
+    
+    INSERT INTO STORE_ORDER
+    VALUES (
+        SEQ_S_ORDER_NO.NEXTVAL
+        , #{orderDetailNo}
+        , #{orderCount}
+        , #{orderPrice}
+        , DEFAULT
+        , DEFAULT
+        , NULL
+        , #{userEmail}
+        , #{userName}
+        , #{storeName}
+        , #{storeNo}
+        , #{imp_uid}
+    )
+</insert>
+
+	
+	
+	
+	<!-- 쿠폰정보 등록 -->
+	<insert id="insertStoreCoupon" parameterType="storeCoupon">
+	INSERT INTO STORE_COUPON
+    	VALUES (
+    		SEQ_S_COUPON_NO.NEXTVAL
+        	, #{sorderNo}
+        	, #{couponDetailNo}
+        	,DEFAULT
+        	
+        	)
+	</insert>
+	
+	
+	
+	
+	
+	<select id="getstoreList" parameterType="int" resultMap="store_rm">
+    SELECT *
+    FROM STORE
+    WHERE STORE_NO IN (
+        SELECT STORE_NO
+        FROM STORE_ORDER
+        WHERE S_ORDER_NO = #{sorderNo}
+    )
+</select>
+
+<select id="getstoreOrderList" parameterType="int" resultMap="storeOrder_rm">
+     SELECT *
+    FROM STORE_ORDER
+    WHERE S_ORDER_NO = #{sorderNo}
+</select>
+
+<select id="getstoreCouponList" parameterType="int" resultMap="storeCoupon_rm">
+     SELECT *
+    FROM STORE_COUPON
+    WHERE S_ORDER_NO = #{sorderNo}
+</select>
+
+	
+</mapper>

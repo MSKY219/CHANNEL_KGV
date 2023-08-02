@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="playMapper">
+
+    <resultMap type="movie" id="movie_rm">
+		<id property="movieNo" column="MOVIE_NO"/>
+		<result property="movieRuntime" 		column="MOVIE_RUNTIME"/>
+		<result property="movieTitle" 			column="MOVIE_TITLE"/>
+		<result property="movieNation" 			column="MOVIE_NATION"/>
+		<result property="movieOpen" 			column="MOVIE_OPEN"/>
+		<result property="mgNo" 				column="MG_CONTENT"/> 
+		<result property="movieContent" 		column="MOVIE_CONTENT"/>
+		<result property="movieDirector" 		column="MOVIE_DIRECTOR"/>
+		<result property="movieCast" 			column="MOVIE_CAST"/>
+		<result property="moviePlayed" 			column="MOVIE_PLAYED"/>
+		<result property="movieWatched" 		column="MOVIE_WATCHED"/>
+		<result property="movieRegdate" 		column="MOVIE_REGDATE"/>
+		<result property="movieUploader"	 	column="MOVIE_UPLOADER"/>
+		<result property="genreName" 			column="GENRE_NAME"/>
+		<result property="movieImg1" 			column="MOVIE_IMG1"/> 
+		<result property="movieImg2" 			column="MOVIE_IMG2"/> 
+		<result property="movieImg3" 			column="MOVIE_IMG3"/> 
+		<result property="movieImg4" 			column="MOVIE_IMG4"/> 
+		<result property="movieImg5"			column="MOVIE_IMG5"/> 
+		<result property="movieImg6" 			column="MOVIE_IMG6"/> 
+		<result property="movieSt" 				column="MOVIE_ST"/> 
+	</resultMap>
+	
+	<resultMap type="tt" id="tt_rm">
+		<id property="ttNo" column="TT_NO" />
+		<result property="ttTime" column="TT_TIME" />
+	</resultMap>
+	
+	<resultMap type="play" id="play_rm">
+	    <id property="playNo"                   column="PLAY_NO" />
+	    <result property="movieNo"              column="MOVIE_NO" />
+	    <result property="screenNo"             column="SCREEN_NO" />
+	    <result property="playStart"            column="PLAY_START"/>
+	    <result property="playEnd"              column="PLAY_END"/>
+	    <result property="playRegDate"          column="PLAY_REGDATE"/>
+	    <result property="playUploader"         column="PLAY_UPLOADER"/>
+	    <result property="playBookCount"        column="PLAY_BOOKCOUNT"/>
+	    <result property="playBookSeat"         column="PLAY_BOOKSEAT"/>
+	    <result property="playSt"                  column="PLAY_ST"/>
+	</resultMap>
+	
+	<resultMap type="screen" id="screen_rm">
+		<id property="screenNo"                 column="SCREEN_NO" />
+		<result property="cinemaName"           column="CINEMA_NAME" />
+		<result property="screenName"           column="SCREEN_NAME" />
+		<result property="screenStyle"          column="SCREEN_STYLE" />
+		<result property="screenSeat"           column="SCREEN_SEAT" />
+		<result property="screenRow"         column="SCREEN_ROW" />
+		<result property="screenCol"         column="SCREEN_COL" />
+		<result property="screenAisle"         column="SCREEN_AISLE" />
+		<result property="screenSpace"         column="SCREEN_SPACE" />
+		<result property="screenSweet"         column="SCREEN_SWEET" />
+		<result property="screenImpaired"         column="SCREEN_IMPAIRED" />
+	</resultMap>
+	
+	<resultMap type="cinema" id="cinema_rm">
+		<id property="cinemaNo"                 column="CINEMA_NO" />
+		<result property="cinemaName"           column="CINEMA_NAME" />
+		<result property="cinemaArea"           column="CINEMA_AREA" />
+		<result property="cinemaRegion"         column="CINEMA_REGION" />
+		<result property="cinemaScreen"         column="CINEMA_SCREEN" />
+	</resultMap>
+	
+	<resultMap type="tc" id="tc_rm">
+		<result property="areaIndex"           column="TC_AREA" />
+		<result property="cinemaIndex"           column="TC_CINEMA" />
+		<result property="screenIndex"         column="TC_SCREEN" />
+		<result property="movieIndex"         column="TC_MOVIE" />
+		<result property="screenNo"         column="TC_SCREENNO" />
+		<result property="timeIndex"         column="TC_TIME" />
+		<result property="startDate"         column="TC_STARTDATE" />
+		<result property="endDate"         column="TC_ENDDATE" />
+		<result property="startTime"         column="TC_STARTTIME" />
+		<result property="endTime"         column="TC_ENDTIME" />
+	</resultMap>
+	
+	<resultMap type="jp" id="jp_rm">
+		<collection property="play" resultMap="play_rm" />
+		<collection property="cinema" resultMap="cinema_rm" />
+		<collection property="movie" resultMap="movie_rm" />
+		<collection property="tt" resultMap="tt_rm" />
+		<collection property="screen" resultMap="screen_rm" />
+	</resultMap>
+	
+	<resultMap type="book" id="book_rm">
+	    <id property="bookNo"                 column="BOOK_NO" />
+	    <result property="playNo"             column="PLAY_NO" />
+	    <result property="userNo"             column="USER_NO" />
+	    <result property="movieNo"           column="MOVIE_NO" />
+	    <result property="bookDt"             column="BOOK_DT" />
+	    <result property="bookAge"           column="BOOK_AGE" />
+	    <result property="bookSeat"          column="BOOK_SEAT" />
+	    <result property="bookPrice"         column="BOOK_PRICE" />
+	    <result property="bookSt"             column="BOOK_ST" />
+	</resultMap>
+	
+	<resultMap type="storeCoupon" id="storeCoupon_rm">
+		<id property="scouponNo" column="S_COUPON_NO"/>
+		<result property="sorderNo" 				column="S_ORDER_NO"/>
+		<result property="couponDetailNo" 			column="COUPON_DETAIL_NO"/>
+		<result property="couponSt" 			column="COUPON_ST"/>
+	</resultMap>
+	
+	<resultMap type="storeOrder" id="storeOrder_rm">
+		<id property="sorderNo" column="S_ORDER_NO"/>
+		<result property="orderDetailNo" 			column="ORDER_DETAIL_NO"/>
+		<result property="orderCount" 				column="ORDER_COUNT"/>
+		<result property="orderPrice" 				column="ORDER_PRICE"/>
+		<result property="orderDate" 				column="ORDER_DATE"/>
+		<result property="orderSt" 				column="ORDER_ST"/>
+		<result property="orderDelete" 				column="ORDER_DELETE"/>
+		<result property="userEmail" 				column="USER_EMAIL"/>
+		<result property="userName" 				column="USER_NAME"/>
+		<result property="storeName" 				column="STORE_NAME"/>
+		<result property="storeNo" 					column="STORE_NO"/>
+	</resultMap>
+	
+	<resultMap type="store" id="store_rm">
+		<id property="storeNo" column="STORE_NO"/>
+		<result property="storeCategory" 			column="STORE_CATEGORY"/>
+		<result property="storeName" 				column="STORE_NAME"/>
+		<result property="storePrice" 				column="STORE_PRICE"/>
+		<result property="storeImage" 				column="STORE_IMAGE"/>
+		<result property="storeDesc" 				column="STORE_DESC"/>
+		<result property="storeStock" 				column="STORE_STOCK"/>
+		<result property="storeImageBig" 			column="STORE_IMAGE_BIG"/>
+	</resultMap>
+	
+	<resultMap type="PO" id="payOrder_rm">
+		<id property="reserveNo" 			column="RESERVE_NO"/>
+		<result property="bookNo" 			column="BOOK_NO"/>
+		<result property="reserveCodeNo" 	column="RESERVE_CODE_NO"/>
+		<result property="reserveSt" 		column="RESERVE_ST"/>
+	</resultMap>
+	
+	
+	<!-- 상영 시간표 -->
+	
+	<select id="getTimeTableList" resultMap="tt_rm">
+		SELECT * FROM TIME_TABLE
+	</select>
+	
+	
+	<!-- 상영 유효성 검사 -->
+	
+	<select id="playTimeCheck" resultMap="play_rm">
+		SELECT * FROM PLAY
+		<![CDATA[WHERE PLAY_START <= TO_DATE(#{playEnd}, 'YYYY-MM-DD HH24:MI:SS') 
+		         AND PLAY_END >= TO_DATE(#{playStart}, 'YYYY-MM-DD HH24:MI:SS')
+		         AND SCREEN_NO = #{screenNo}]]>
+		         
+	</select>
+	
+	
+	<!-- 상영 등록 -->
+	
+	<insert id="enrollPlay" parameterType="play">
+		INSERT INTO PLAY(PLAY_NO, MOVIE_NO, SCREEN_NO, PLAY_START, PLAY_END, PLAY_REGDATE)
+		VALUES(SEQ_PLAY_NO.NEXTVAL, #{movieNo}, #{screenNo}, 
+		       TO_DATE(#{playStart}, 'YYYY-MM-DD HH24:MI:SS'), TO_DATE(#{playEnd}, 'YYYY-MM-DD HH24:MI:SS'), SYSDATE)
+	</insert>
+	
+	
+	<!-- 상영 중인 영화 리스트 (이름 순) -->
+	
+	<select id="getPlayingMovieList" resultMap="movie_rm">
+		SELECT * FROM MOVIE
+		WHERE MOVIE_ST = 'Y'
+		ORDER BY MOVIE_TITLE ASC
+	</select>
+	
+	
+	<!-- 상영 중인 영화 리스트 (예매율 순) -->
+	
+	<select id="getPlayingThumbList" resultMap="movie_rm">
+		SELECT * FROM MOVIE m
+		WHERE m.MOVIE_ST = 'Y'
+		ORDER BY (SELECT COUNT(b.MOVIE_NO)*100 FROM BOOK b WHERE b.MOVIE_NO = m.MOVIE_NO AND b.BOOK_ST = 'Y') DESC, 
+		               m.MOVIE_TITLE ASC
+	</select>
+	
+	
+	<!-- 전체 평점 -->
+	
+	<select id="getAllScore" resultType="map">
+		SELECT COALESCE((SELECT ROUND(SUM(r.REV_LIKE) / COUNT(r.REV_LIKE), 1) FROM REVIEW r 
+		                            WHERE r.MOVIE_NO = M.MOVIE_NO AND r.REV_ST = 'N'), 0) AS "평점"
+		FROM MOVIE M
+		LEFT OUTER JOIN REVIEW R ON M.MOVIE_NO = R.MOVIE_NO
+		WHERE M.MOVIE_ST = 'Y'
+		GROUP BY M.MOVIE_NO, M.MOVIE_TITLE
+		ORDER BY (SELECT COUNT(b.MOVIE_NO) * 100 FROM Book b WHERE b.MOVIE_NO = M.MOVIE_NO AND b.BOOK_ST = 'Y') DESC, 
+		               M.MOVIE_TITLE ASC
+	</select>
+	
+	
+	
+	<!-- 전체 예매율 -->
+	
+	<select id="getAllRate" resultType="map">
+	    SELECT ROUND((SELECT COUNT(b.MOVIE_NO)*100 FROM Book b WHERE b.MOVIE_NO = m.MOVIE_NO AND b.BOOK_ST = 'Y') / 
+                              (SELECT COUNT(*) FROM BOOK WHERE BOOK_ST = 'Y'), 1) AS "예매율"
+        FROM MOVIE m
+        LEFT OUTER JOIN BOOK b ON m.MOVIE_NO = b.MOVIE_NO
+        WHERE MOVIE_ST = 'Y'
+        GROUP BY m.MOVIE_NO, m.MOVIE_TITLE
+        ORDER BY (SELECT COUNT(b.MOVIE_NO)*100 FROM Book b WHERE b.MOVIE_NO = m.MOVIE_NO AND b.BOOK_ST = 'Y') DESC, 
+                       m.MOVIE_TITLE ASC
+	</select>
+	
+	
+	<!-- 영화관별 전체 상영 검색 -->
+	
+	<select id="getTotalPlayList" parameterType="Map" resultMap="jp_rm">
+	<![CDATA[
+	    SELECT m.MOVIE_NO, m.MOVIE_TITLE, m.MG_CONTENT, m.MOVIE_IMG1, c.CINEMA_NAME, s.SCREEN_NAME, s.SCREEN_SEAT, s.SCREEN_STYLE,
+	           p.PLAY_NO, p.PLAY_START, p.PLAY_END, p.PLAY_BOOKCOUNT  
+	    FROM PLAY p
+        INNER JOIN SCREEN s ON p.SCREEN_NO  = s.SCREEN_NO 
+        INNER JOIN CINEMA c ON s.CINEMA_NAME = c.CINEMA_NAME
+        INNER JOIN MOVIE m ON p.MOVIE_NO = m.MOVIE_NO
+        WHERE c.CINEMA_NO = #{cinemaNo} AND TO_CHAR(p.PLAY_START, 'YYYYMMDD') = #{strDate} AND p.PLAY_START > SYSDATE
+        ORDER BY m.MOVIE_TITLE ASC, p.PLAY_START ASC
+	]]>
+	</select>
+	
+	
+	<!-- 특정 영화관의 특정 영화에 대한 상영 검색 -->
+	<select id="getMoviePlayList" parameterType="Map" resultMap="jp_rm">
+	<![CDATA[
+	    SELECT m.MOVIE_NO, m.MOVIE_TITLE, m.MG_CONTENT, m.MOVIE_IMG1, c.CINEMA_NAME, s.SCREEN_NAME, s.SCREEN_SEAT, s.SCREEN_STYLE,
+	           p.PLAY_NO, p.PLAY_START, p.PLAY_END, p.PLAY_BOOKCOUNT  
+	    FROM PLAY p
+        INNER JOIN SCREEN s ON p.SCREEN_NO  = s.SCREEN_NO 
+        INNER JOIN CINEMA c ON s.CINEMA_NAME = c.CINEMA_NAME
+        INNER JOIN MOVIE m ON p.MOVIE_NO = m.MOVIE_NO
+        WHERE c.CINEMA_NO = #{cinemaNo} AND TO_CHAR(p.PLAY_START, 'YYYYMMDD') = #{strDate} AND p.PLAY_START > SYSDATE
+              AND m.MOVIE_NO = #{movieNo}
+        ORDER BY p.PLAY_START ASC
+	]]>
+	</select>
+	
+	
+	<!-- 특별관의 전체 상영 검색 -->
+	<select id="getSpecialPlayList" parameterType="Map" resultMap="jp_rm">
+	<![CDATA[
+	    SELECT m.MOVIE_NO, m.MOVIE_TITLE, m.MG_CONTENT, m.MOVIE_IMG1, c.CINEMA_NAME, s.SCREEN_NAME, s.SCREEN_SEAT, s.SCREEN_STYLE,
+	           p.PLAY_NO, p.PLAY_START, p.PLAY_END, p.PLAY_BOOKCOUNT  
+	    FROM PLAY p
+        INNER JOIN SCREEN s ON p.SCREEN_NO  = s.SCREEN_NO 
+        INNER JOIN CINEMA c ON s.CINEMA_NAME = c.CINEMA_NAME
+        INNER JOIN MOVIE m ON p.MOVIE_NO = m.MOVIE_NO
+        WHERE TO_CHAR(p.PLAY_START, 'YYYYMMDD') = #{strDate} AND p.PLAY_START > SYSDATE
+                  AND s.SCREEN_STYLE = #{screenStyle} AND s.CINEMA_NAME = #{cinemaName}
+        ORDER BY m.MOVIE_TITLE ASC, p.PLAY_START ASC
+	]]>
+	</select>
+	
+	<!-- 특정 특별관의 특정 영화에 대한 상영 검색 -->
+	<select id="getRoomPlayList" parameterType="Map" resultMap="jp_rm">
+	<![CDATA[
+	    SELECT m.MOVIE_NO, m.MOVIE_TITLE, m.MG_CONTENT, m.MOVIE_IMG1, c.CINEMA_NAME, s.SCREEN_NAME, s.SCREEN_SEAT, s.SCREEN_STYLE,
+	           p.PLAY_NO, p.PLAY_START, p.PLAY_END, p.PLAY_BOOKCOUNT  
+	    FROM PLAY p
+        INNER JOIN SCREEN s ON p.SCREEN_NO  = s.SCREEN_NO 
+        INNER JOIN CINEMA c ON s.CINEMA_NAME = c.CINEMA_NAME
+        INNER JOIN MOVIE m ON p.MOVIE_NO = m.MOVIE_NO
+        WHERE TO_CHAR(p.PLAY_START, 'YYYYMMDD') = #{strDate} AND p.PLAY_START > SYSDATE
+                  AND s.SCREEN_STYLE = #{screenStyle} AND s.CINEMA_NAME = #{cinemaName} AND m.MOVIE_NO = #{movieNo}
+        ORDER BY  p.PLAY_START ASC
+	]]>
+	</select>
+	
+	
+	<select id="getUserPlay" parameterType="_int" resultMap="jp_rm">
+	    SELECT *
+	    FROM PLAY p
+        INNER JOIN SCREEN s ON p.SCREEN_NO  = s.SCREEN_NO 
+        INNER JOIN CINEMA c ON s.CINEMA_NAME = c.CINEMA_NAME
+        INNER JOIN MOVIE m ON p.MOVIE_NO = m.MOVIE_NO
+        WHERE p.PLAY_NO = #{playNo}
+	
+	</select>
+	
+	<!-- 시간이 중복될 때 값을 담아서 화면에 떤져주기 -->
+	<select id="getDupTime" parameterType="play" resultMap="play_rm">
+SELECT
+    <!-- 상영 스크린 번호(SCREEN_NAME) -->
+    (s.SCREEN_NAME) AS PLAY_UPLOADER
+    <!-- 영화 시작일 / 오늘 기준으로 가장 빠른 시작 시간(YYYY-MM-DD) -->
+    , (
+        SELECT TO_CHAR(MIN(p.PLAY_START), 'YYYY-MM-DD')
+        FROM PLAY p
+        WHERE s.SCREEN_NO = p.SCREEN_NO
+        AND s.SCREEN_NO = #{screenNo}
+        AND p.PLAY_START > SYSDATE
+    ) AS PLAY_START
+    <!-- 영화 시작일 / 오늘 기준으로 가장 빠른 시작 시간(HH24:MI) -->
+    , (
+        SELECT TO_CHAR(MIN(p.PLAY_START), 'HH24:MI')
+        FROM PLAY p
+        WHERE s.SCREEN_NO = p.SCREEN_NO
+        AND s.SCREEN_NO = #{screenNo}
+        AND p.PLAY_START > SYSDATE
+    ) AS PLAY_BOOKSEAT
+    <!-- 영화 종료일 / 오늘 기준으로 가장 늦은 시작 시간(YYYY-MM-DD) -->
+    , (
+        SELECT TO_CHAR(MAX(p.PLAY_START), 'YYYY-MM-DD')
+        FROM PLAY p
+        WHERE s.SCREEN_NO = p.SCREEN_NO
+        AND s.SCREEN_NO = #{screenNo}
+        AND p.PLAY_START > SYSDATE
+    ) AS PLAY_END
+   <!-- 영화 종료일 / 오늘 기준으로 가장 늦은 시작 시간(HH24:MI) -->
+    , (
+        SELECT TO_CHAR(MAX(p.PLAY_START), 'HH24:MI')
+        FROM PLAY p
+        WHERE s.SCREEN_NO = p.SCREEN_NO
+        AND s.SCREEN_NO = #{screenNo}
+        AND p.PLAY_START > SYSDATE
+    ) AS PLAY_REGDATE
+FROM SCREEN s
+WHERE s.SCREEN_NO = #{screenNo}
+		</select>
+		
+		
+		<update id="addPlayCount" parameterType = "movie">
+		UPDATE MOVIE 
+		SET MOVIE_PLAYED = MOVIE_PLAYED + 1
+		WHERE MOVIE_NO = #{movieNo}
+		</update>
+		
+<!--  screenName + cinemaName 으로 screenNo 구해오기 -->
+	<select id="getScreenNo" resultType="_int">
+    SELECT s.SCREEN_NO
+    FROM SCREEN s
+    INNER JOIN CINEMA c ON s.CINEMA_NAME = c.CINEMA_NAME
+    WHERE c.CINEMA_NAME = #{cinemaIndex}
+    AND s.SCREEN_NAME = #{screenIndex}
+</select>
+
+
+    <insert id="buyTicket" parameterType="Map">
+        INSERT INTO BOOK
+        VALUES(SEQ_BOOK_NO.NEXTVAL, #{playNo}, #{userNo}, ( SELECT MOVIE_NO FROM PLAY WHERE PLAY_NO = #{playNo}), 
+                   DEFAULT, #{bookAge}, #{bookSeat}, #{bookPrice}, 'N')
+    </insert>
+    
+    <update id="updatePlaySeat" parameterType="Map">
+        UPDATE PLAY
+        SET PLAY_BOOKCOUNT = #{playBookCount}, PLAY_BOOKSEAT = #{playBookSeat}
+        WHERE PLAY_NO = #{playNo}
+    </update>
+    
+    <select id="getBookNo" resultType="_int">
+        SELECT MAX(BOOK_NO) FROM BOOK
+        WHERE USER_NO = #{userNo}
+    </select>
+    
+    <select id="serchPrice" parameterType="_int" resultType="string">
+        SELECT BOOK_PRICE
+        FROM BOOK
+        WHERE BOOK_NO = #{bookNo}
+    </select>
+    
+    <select id="checkSeat" parameterType="_int" resultType="string">
+        SELECT BOOK_SEAT
+        FROM BOOK
+        WHERE BOOK_NO = #{bookNo}
+    </select>
+    
+	<select id="selectCoupon" parameterType="string" resultMap="storeCoupon_rm">
+        SELECT *
+        FROM STORE_COUPON
+        WHERE COUPON_DETAIL_NO = #{couponNo}
+    </select>
+    
+    <select id="selectCategory" parameterType="string" resultType="string">
+		SELECT s.STORE_CATEGORY
+		FROM STORE_COUPON sc
+		INNER JOIN STORE_ORDER so ON sc.S_ORDER_NO = so.S_ORDER_NO 
+		INNER JOIN STORE s ON so.STORE_NO = s.STORE_NO 
+		WHERE COUPON_DETAIL_NO = #{couponNo}
+    </select>
+    
+    <update id="updateTicketStatus" parameterType="Map">
+        UPDATE STORE_COUPON
+		SET COUPON_ST = 'N'
+		WHERE COUPON_DETAIL_NO = #{couponDetailNo}
+    </update>
+    
+    
+    <select id="getCanceledBookList" resultMap="book_rm">
+    <![CDATA[
+        SELECT * FROM BOOK
+        WHERE BOOK_ST = 'N' AND BOOK_DT < (SYSDATE-3/(24*60))
+        ORDER BY PLAY_NO
+    ]]>
+    </select>
+    
+    <select id="getSimplePlay" parameterType="_int" resultMap="play_rm">
+        SELECT * FROM PLAY
+        WHERE PLAY_NO = #{playNo}
+    </select>
+    
+    <delete id="deleteBook">
+    <![CDATA[
+        DELETE FROM BOOK
+        WHERE BOOK_ST = 'N' AND BOOK_DT < (SYSDATE-3/(24*60))
+    ]]>
+    </delete>
+
+    <insert id="successPayment" parameterType="Map">
+        INSERT INTO PAY_ORDER
+        VALUES
+        (
+        	SEQ_PAYORDER_NO.NEXTVAL,
+        	#{bookNo},
+        	#{reserveCodeNo},
+        	DEFAULT
+        )
+    </insert>
+    
+    
+    <select id="serchPayOrder" parameterType="_int" resultType="string">
+		SELECT RESERVE_CODE_NO
+		FROM PAY_ORDER
+		WHERE BOOK_NO = #{bookNo}
+    </select>
+
+    
+    <select id="getPlayNo" parameterType="_int" resultType="_int">
+        SELECT PLAY_NO
+        FROM BOOK
+        WHERE BOOK_NO = #{bookNo}
+    </select>
+    
+
+    <select id="serchBook" parameterType="_int" resultMap="book_rm">
+        SELECT *
+        FROM BOOK
+        WHERE BOOK_NO = #{bookNo}
+     </select>
+
+    <select id="getPastPlayList" resultMap="play_rm">
+    <![CDATA[
+        SELECT * FROM PLAY
+        WHERE PLAY_END < SYSDATE AND PLAY_ST = 'N'
+        ORDER BY MOVIE_NO
+    ]]>
+    </select>
+
+	<select id="getTotalTicket" parameterType="_int" resultType="_int">
+	    SELECT MOVIE_WATCHED FROM MOVIE
+	    WHERE MOVIE_NO = #{movieNo}
+	</select>
+	
+	<update id="updatePlaySt">
+	<![CDATA[
+        UPDATE PLAY
+		SET PLAY_ST = 'Y'
+		WHERE PLAY_END < SYSDATE AND PLAY_ST = 'N'
+    ]]>
+	</update>
+	
+	<update id="updateTotalTicket" parameterType="Map">
+	    UPDATE Movie
+		SET MOVIE_WATCHED = #{movieWatched}
+		WHERE MOVIE_NO = #{movieNo}
+	</update>
+	
+	<update id="changeSt" parameterType="_int">
+	    UPDATE BOOK
+		SET BOOK_ST = 'Y'
+		WHERE BOOK_NO = #{bookNo}
+	</update>
+	
+</mapper>
