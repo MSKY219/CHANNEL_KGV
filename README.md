@@ -5,6 +5,7 @@
 - 주소 : www.kgv.co.kr
 - 사용자 페이지 영상 : https://www.youtube.com/watch?v=eOJ9vzdLiiM&t=55s&ab_channel=MS.K
 - 관리자 페이지 영상 : https://www.youtube.com/watch?v=cGtcmSNcMIk&ab_channel=MS.K
+- 원본 프로젝트 깃 주소 : https://github.com/MSKY219/FINAL_PROJECT
 
 - 수행기간 : 2023.05.15 ~ 2023.07.10 (1 개월 26일)
 
