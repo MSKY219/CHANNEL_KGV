@@ -2,7 +2,6 @@
 # Channel_KGV
 
 1) 프로젝트명 : CHANNEL_KGV 영화 예매 사이트
-- 주소 : www.kgv.co.kr
 - 사용자 페이지 영상 : https://www.youtube.com/watch?v=eOJ9vzdLiiM&t=55s&ab_channel=MS.K
 - 관리자 페이지 영상 : https://www.youtube.com/watch?v=cGtcmSNcMIk&ab_channel=MS.K
 - 원본 프로젝트 깃 주소 : https://github.com/MSKY219/FINAL_PROJECT
